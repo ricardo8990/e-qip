@@ -4,8 +4,9 @@ from pygame.locals import *
 from random import randint
 
 pygame.init()
+infoObject = pygame.display.Info()
 
-window = pygame.display.set_mode((400, 300))
+window = pygame.display.set_mode((infoObject.current_w / 2, infoObject.current_h / 2))
 pygame.display.set_caption("Hello world")
 
 colour = (70, 80, 150)
