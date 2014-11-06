@@ -1,0 +1,9 @@
+ -*- coding: utf-8 -*-
+ By Daniel Petri 2012-2014. Graphics by Paulo Ditzel and Peter Pluecker.
+ Special thanks to Michail (michailgames.com)
+ -*- CC BY-NC 4.0 -*-
+
+Controls:
+Mouse: move your cursor around to change your ship's position, catch power ups, dodge meteors and enemies.
+Left click: shoot
+F11: Fullscreen mode.

@@ -1,0 +1,45 @@
+ -*- coding: utf-8 -*-
+ By Daniel Petri 2012-2014. Graphics by Paulo Ditzel and Peter Pluecker.
+ Special thanks to Michail (michailgames.com)
+ -*- CC BY-NC 4.0 -*-
+
+1/06/2012: Started.
+
+?/?/2012-2013:
+  + Added moving and rotating meteors
+  + Moving background
+  + Added 3 types of enemy ships
+  + Added health and armor bar
+  + Added 3 types of planets, which can have different sizes
+
+4/1/2014:
+  + Added collision boxes and almost working collision system
+  + Fullscreen mode now accesible by pressing F11
+  + Some bug fixes
+  + Added credits and a Creative Commons Attribution
+  + If you run the game without the proper Python drivers, a warning message will appear
+
+5/1/2014
+  + Collision with meteors implemented
+  + New sprite added, used when a meteor turns into debris (which also rotates)
+  + Health and shield loss algorithm
+  + Different colors are now used to display how your health/shield protection is doing
+
+6/1/2014:
+  + Fixed enemyship1's collision box from laggin behind, thus improving overall gameplay
+  + Added general enemy ship collision
+
+7/1/2014:
+  + Shield algorithm mathematically improved by Paulo Ditzel
+  + Credit README updated
+  + Created multiple collision boxes for the player's ship
+
+21/1/2014:
+  + Polished ship's death animation
+  + Started an 'Encyclopedia' file explaining how the game is built
+  + Created 'Instructions' file
+
+2/1/2014:
+  + Removed 'Encyclopedia' file. The code has comments anyways...
+  + Added shooting (left click)
+  + Published Nebula Wars 0.3 to Pygame
