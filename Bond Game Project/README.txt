@@ -6,7 +6,7 @@ We can try to divide work here if you'd like...
 
 
 To do:                          People:
-Adding agents, obstacles  ---   Deniz
-Collision detection
+Adding agents, obstacles  ---   Karthika
+Collision detection       ---   Deniz
 Implementing a score system
 Finding nice images
