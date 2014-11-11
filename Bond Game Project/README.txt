@@ -1,5 +1,12 @@
-Hi all,
+Version 2 of Bond:
 
-This is an example of Bond skiing down.  Bond can be controlled by keyboard events.
-I've added the classes and functions that I think would be useful to implement as comments.
-Please update the file as you add functions, classes and find better images.
+The background scrolls according to the movements of the player.
+
+We can try to divide work here if you'd like...
+
+
+To do:                          People:
+Adding agents, obstacles  ---   Deniz
+Collision detection
+Implementing a score system
+Finding nice images

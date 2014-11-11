@@ -1,5 +1,5 @@
 import pygame, sys, math, random
-from pygame.locals import *
+from pygame import *
 
 BLACK    = (   0,   0,   0)
 WHITE    = ( 255, 255, 255)
@@ -7,65 +7,93 @@ GREEN    = (   0, 255,   0)
 RED      = ( 255,   0,   0)
 
 bond = 'bond skiing.png'
-background = 'snow.jpg'
-
-
+WIN_HEIGHT = 400
+WIN_WIDTH = 468
+HALF_WIDTH = int(WIN_WIDTH / 2)
+HALF_HEIGHT = int(WIN_HEIGHT / 2)
+DISPLAY = (WIN_WIDTH, WIN_HEIGHT)
+DEPTH = 32
+FLAGS = 0
+CAMERA_SLACK = 30
 
 class Bond(object):
      def __init__(self, x, y, img):
-        self.x = x
-        self.y = y
-        self.img = img
+          self.x = x
+          self.y = y
+          self.img = img
+          self.rect = Rect(x,y,34,44)
 
+     def update(self, down, left, right):
+          if down:
+               self.y = 3
+               #self.rect.top += self.y
+          if left:
+               self.x = -1
+               self.rect.left += self.x
+          if right:
+               self.x = 1
+               self.rect.right += self.x
+
+          if self.rect.left<0:
+               self.rect.left=0
+          elif self.rect.right>468:
+               self.rect.right = 468
+          elif self.rect.bottom > 1000:
+               self.rect.bottom = 1000   ##FINISH GAME
+          else:
+               self.rect.left += self.x
+               self.rect.right += self.x
+               self.rect.top += self.y
+
+
+      
 class Background(object):
-    def __init__(self, x, y, img, speed):
+    def __init__(self, x, y, img):
         self.x = x
         self.y = y
         self.img = img
-        self.speed = speed
+        self.rect = Rect(x,y,468,1000)
+
 
 class Agent(object):
-    def __init__(self, x, y, img):
-        self.x = x
-        self.y = y
-        self.img = img
+     def __init__(self, x, y, img):
+          self.x = x
+          self.y = y
+          self.img = img
         
 class Obstacle(object):
-    def __init__(self, x, y, img):
-        self.x = x
-        self.y = y
-        self.img = img
+     def __init__(self, x, y, img):
+          self.x = x
+          self.y = y
+          self.img = img
 
         
+class Camera(object):
+     def __init__(self, camera_func, width, height):
+          self.camera_func = camera_func
+          self.state = Rect(0, 0, width, height)
 
-     
+     def apply(self, target):
+          return target.rect.move(self.state.topleft)
 
-pygame.init()
-   
-size = [700, 500]
-screen = pygame.display.set_mode(size)
-  
-pygame.display.set_caption("007 JAMES BOND")
+     def update(self, target):
+          self.state = self.camera_func(self.state, target.rect)
 
-bond = pygame.image.load(bond)
-background = pygame.image.load(background)
+def simple_camera(camera, target_rect):
+     l, t, _, _ = target_rect
+     _, _, w, h = camera
+     return Rect(-l+HALF_WIDTH, -t+HALF_HEIGHT, w, h)
 
-player = Bond(350,10,bond)
-bg = Background(0,0,background,1)
-done = False
-  
-clock = pygame.time.Clock()
- 
-pygame.mouse.set_visible(0)
+def complex_camera(camera, target_rect):
+     l, t, _, _ = target_rect
+     _, _, w, h = camera
+     l, t, _, _ = -l+HALF_WIDTH, -t+HALF_HEIGHT, w, h
 
-def animateBackground():
-    screen.blit(background, (bg.x, bg.y))
-    screen.blit(background, (bg.x, bg.y+size[1]))
-
-    bg.y -= bg.speed
-
-    if bg.y <= -500:
-        bg.y = 0
+     l = min(0, l)                           
+     l = max(-(camera.width-WIN_WIDTH), l)   
+     t = max(-(camera.height-WIN_HEIGHT), t) 
+     t = min(0, t)                          
+     return Rect(l, t, w, h)
 
 #def addAgents():
 
@@ -73,52 +101,61 @@ def animateBackground():
 
 #def handleCollision():
 
-#def showScores():
-        
+#def showScores():  
 
 def end():
-    pygame.quit()
-    sys.exit()
-
-def getEvents():
-
-    for event in pygame.event.get(): 
-        if event.type == pygame.QUIT: 
-            end() 
-     
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                player.x -= 5
-            elif event.key == pygame.K_RIGHT:
-                player.x += 5
-            elif event.key == pygame.K_UP:
-                player.y -= 5
-            elif event.key == pygame.K_DOWN:
-                player.y += 5
-                  
-        elif event.type == pygame.KEYUP:
-
-            if event.key == pygame.K_LEFT:
-                player.x=player.x
-            elif event.key == pygame.K_RIGHT:
-                player.x=player.x
-            elif event.key == pygame.K_UP:
-                player.y=player.y
-            elif event.key == pygame.K_DOWN:
-                player.y=player.y
-
-
+     pygame.quit()
+     sys.exit()
 
 def main():
-    while True:
-        animateBackground()
-        getEvents()
+     pygame.init()
+     screen = pygame.display.set_mode(DISPLAY, FLAGS, DEPTH)
+     pygame.display.set_caption("007 JAMES BOND")
+     clock = pygame.time.Clock()
 
-        screen.blit(bond,(player.x,player.y))
+     down = left = right = False
+     bnd = pygame.image.load(bond)
+     bgimg = pygame.image.load('bg.png')
+     total_level_width  = 468
+     total_level_height = 1000
+     camera = Camera(complex_camera, total_level_width, total_level_height)
+     player = Bond(0,0,bnd)
+     bg = Background(0,0,bgimg)
   
-        pygame.display.update()
+     pygame.mouse.set_visible(0)
+     screen.blit(bgimg,(0,0))
+     
+     while True:
+          clock.tick(60)
+          for event in pygame.event.get():
+               if event.type == pygame.QUIT:
+                    end() 
+     
+               elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
+                         left = True
+                    elif event.key == pygame.K_RIGHT:
+                         right = True
+                    elif event.key == pygame.K_DOWN:
+                         down = True
+                 
+               elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT:
+                         left = False
+                    elif event.key == pygame.K_RIGHT:
+                         right = False
+                    elif event.key == pygame.K_DOWN:
+                         down = False
+                    
+          screen.blit(bgimg,(camera.apply(bg)))
+          camera.update(player)
+          player.update(down, left, right)   
+          screen.blit(bnd,(camera.apply(player)))
+          pygame.display.update()
   
-        clock.tick(60)
+          
+
+          
 
 if __name__ == '__main__':
-    main()
+     main()
