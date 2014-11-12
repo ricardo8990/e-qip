@@ -1,101 +1,120 @@
 import pygame, sys, math, random
 from pygame import *
 
-BLACK    = (   0,   0,   0)
-WHITE    = ( 255, 255, 255)
-GREEN    = (   0, 255,   0)
-RED      = ( 255,   0,   0)
+BLACK = (   0, 0, 0)
+WHITE = ( 255, 255, 255)
+GREEN = (   0, 255, 0)
+RED = ( 255, 0, 0)
 
-bond = 'bond skiing.png'
+bond = 'images/bond skiing.png'
 WIN_HEIGHT = 400
 WIN_WIDTH = 468
 HALF_WIDTH = int(WIN_WIDTH / 2)
 HALF_HEIGHT = int(WIN_HEIGHT / 2)
-DISPLAY = (WIN_WIDTH, WIN_HEIGHT)
 DEPTH = 32
 FLAGS = 0
 CAMERA_SLACK = 30
 
-class Bond(object):
-     def __init__(self, x, y, img):
-          self.x = x
-          self.y = y
-          self.img = img
-          self.rect = Rect(x,y,34,44)
 
-     def update(self, down, left, right):
-          if down:
-               self.y = 3
-               #self.rect.top += self.y
-          if left:
-               self.x = -1
-               self.rect.left += self.x
-          if right:
-               self.x = 1
-               self.rect.right += self.x
+# ----------------------------------------------------#
+#               Class definitions                    #
+#----------------------------------------------------#
+class JamesBond(pygame.sprite.Sprite):
+    def __init__(self):
+        super(JamesBond, self).__init__()
+        self.index = 1
+        self.image = pygame.image.load("images/jamesr1.png").convert_alpha()
+        self.rect = self.image.get_rect()
+        self.x = self.rect.x
+        self.y = self.rect.y
 
-          if self.rect.left<0:
-               self.rect.left=0
-          elif self.rect.right>468:
-               self.rect.right = 468
-          elif self.rect.bottom > 1000:
-               self.rect.bottom = 1000   ##FINISH GAME
-          else:
-               self.rect.left += self.x
-               self.rect.right += self.x
-               self.rect.top += self.y
+    def update_animation(self):
+        self.rect.x += 3
+        self.index = self.index + 1 if self.index < 8 else 1
+        image_name = "images/jamesr{}.png".format(self.index)
+        self.image = pygame.image.load(image_name).convert_alpha()
 
+    def dress_to_ski(self):
+        self.rect.x += 45
+        self.image = pygame.image.load(bond).convert_alpha()
 
-      
+    def update(self, down, left, right):
+        if down:
+            self.image = pygame.image.load(bond).convert_alpha()
+            self.y = 3
+        if left:
+            self.image = pygame.image.load("images/ski left.png").convert_alpha()
+            self.x = -1
+        if right:
+            self.image = pygame.image.load("images/ski right.png").convert_alpha()
+            self.x = 1
+
+        self.rect.y = self.y + self.rect.y if self.rect.y + self.y < 1000 else 1000
+        self.rect.x = self.x + self.rect.x if self.rect.x + self.x > 0 else 0
+        if self.rect.x > 468:
+            self.rect.x = 468
+
 class Background(object):
     def __init__(self, x, y, img):
         self.x = x
         self.y = y
         self.img = img
-        self.rect = Rect(x,y,468,1000)
+        self.rect = Rect(x, y, 468, 1000)
 
 
 class Agent(object):
-     def __init__(self, x, y, img):
-          self.x = x
-          self.y = y
-          self.img = img
-        
-class Obstacle(object):
-     def __init__(self, x, y, img):
-          self.x = x
-          self.y = y
-          self.img = img
+    def __init__(self, x, y, img):
+        self.x = x
+        self.y = y
+        self.img = img
 
-        
+
+class Tree(pygame.sprite.Sprite):
+    def __init__(self):
+        super(Tree, self).__init__()
+        self.image = pygame.image.load("images/tree.png").convert_alpha()
+        self.rect = self.image.get_rect()
+
+
 class Camera(object):
-     def __init__(self, camera_func, width, height):
-          self.camera_func = camera_func
-          self.state = Rect(0, 0, width, height)
+    def __init__(self, camera_func, width, height):
+        self.camera_func = camera_func
+        self.state = Rect(0, 0, width, height)
 
-     def apply(self, target):
-          return target.rect.move(self.state.topleft)
+    def apply(self, target):
+        return target.rect.move(self.state.topleft)
 
-     def update(self, target):
-          self.state = self.camera_func(self.state, target.rect)
+    def update(self, target):
+        self.state = self.camera_func(self.state, target.rect)
+
 
 def simple_camera(camera, target_rect):
-     l, t, _, _ = target_rect
-     _, _, w, h = camera
-     return Rect(-l+HALF_WIDTH, -t+HALF_HEIGHT, w, h)
+    l, t, _, _ = target_rect
+    _, _, w, h = camera
+    return Rect(-l + HALF_WIDTH, -t + HALF_HEIGHT, w, h)
+
 
 def complex_camera(camera, target_rect):
-     l, t, _, _ = target_rect
-     _, _, w, h = camera
-     l, t, _, _ = -l+HALF_WIDTH, -t+HALF_HEIGHT, w, h
+    l, t, _, _ = target_rect
+    _, _, w, h = camera
+    l, t, _, _ = -l + HALF_WIDTH, -t + HALF_HEIGHT, w, h
 
-     l = min(0, l)                           
-     l = max(-(camera.width-WIN_WIDTH), l)   
-     t = max(-(camera.height-WIN_HEIGHT), t) 
-     t = min(0, t)                          
-     return Rect(l, t, w, h)
+    l = min(0, l)
+    l = max(-(camera.width - WIN_WIDTH), l)
+    t = max(-(camera.height - WIN_HEIGHT), t)
+    t = min(0, t)
+    return Rect(l, t, w, h)
 
-#def addAgents():
+
+def start_animation(james, end_point, screen, all_sprites_list, clock, bgimg):
+    while james.rect.x <= end_point:
+        screen.blit(bgimg, (0, 0))
+        james.update_animation()
+        all_sprites_list.draw(screen)
+        clock.tick(20)
+        pygame.display.flip()
+
+# def addAgents():
 
 #def addObstacles():
 
@@ -104,58 +123,88 @@ def complex_camera(camera, target_rect):
 #def showScores():  
 
 def end():
-     pygame.quit()
-     sys.exit()
+    pygame.quit()
+    sys.exit()
+
 
 def main():
-     pygame.init()
-     screen = pygame.display.set_mode(DISPLAY, FLAGS, DEPTH)
-     pygame.display.set_caption("007 JAMES BOND")
-     clock = pygame.time.Clock()
+    #Initialize variables and window
+    pygame.init()
+    infoObject = pygame.display.Info()
+    WIN_HEIGHT = infoObject.current_w / 2
+    WIN_WIDTH = infoObject.current_h / 2
+    HALF_WIDTH = int(WIN_WIDTH / 2)
+    HALF_HEIGHT = int(WIN_HEIGHT / 2)
 
-     down = left = right = False
-     bnd = pygame.image.load(bond)
-     bgimg = pygame.image.load('bg.png')
-     total_level_width  = 468
-     total_level_height = 1000
-     camera = Camera(complex_camera, total_level_width, total_level_height)
-     player = Bond(0,0,bnd)
-     bg = Background(0,0,bgimg)
-  
-     pygame.mouse.set_visible(0)
-     screen.blit(bgimg,(0,0))
-     
-     while True:
-          clock.tick(60)
-          for event in pygame.event.get():
-               if event.type == pygame.QUIT:
-                    end() 
-     
-               elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
-                         left = True
-                    elif event.key == pygame.K_RIGHT:
-                         right = True
-                    elif event.key == pygame.K_DOWN:
-                         down = True
-                 
-               elif event.type == pygame.KEYUP:
-                    if event.key == pygame.K_LEFT:
-                         left = False
-                    elif event.key == pygame.K_RIGHT:
-                         right = False
-                    elif event.key == pygame.K_DOWN:
-                         down = False
-                    
-          screen.blit(bgimg,(camera.apply(bg)))
-          camera.update(player)
-          player.update(down, left, right)   
-          screen.blit(bnd,(camera.apply(player)))
-          pygame.display.update()
-  
-          
+    screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT), FLAGS, DEPTH)
+    pygame.display.set_caption("007 JAMES BOND")
+    clock = pygame.time.Clock()
 
-          
+    #Initialize objects
+    james = JamesBond()
+    james.rect.x = WIN_WIDTH / 8
+    james.rect.y = WIN_HEIGHT / 8
+    end_point = HALF_WIDTH
+
+    all_sprites_list = pygame.sprite.Group()
+    obstacles = pygame.sprite.Group()
+
+    for i in range(5):
+        # This represents a tree
+        tree = Tree()
+        # Set a random location for the tree
+        tree.rect.x = random.randrange(WIN_WIDTH)
+        tree.rect.y = random.randrange(WIN_HEIGHT)
+        # Add the block to the list of objects
+        obstacles.add(tree)
+        all_sprites_list.add(tree)
+
+    all_sprites_list.add(james)
+    down = left = right = False
+
+    bgimg = pygame.image.load('images/bg.png')
+    total_level_width = 468
+    total_level_height = 1000
+    camera = Camera(complex_camera, total_level_width, total_level_height)
+
+    bg = Background(0, 0, bgimg)
+
+    pygame.mouse.set_visible(0)
+
+    start_animation(james, end_point, screen, all_sprites_list, clock, bgimg)
+    screen.blit(bgimg, (0, 0))
+    james.dress_to_ski()
+    all_sprites_list.draw(screen)
+    pygame.display.flip()
+
+    while True:
+        clock.tick(60)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                end()
+
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    left = True
+                elif event.key == pygame.K_RIGHT:
+                    right = True
+                elif event.key == pygame.K_DOWN:
+                    down = True
+
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    left = False
+                elif event.key == pygame.K_RIGHT:
+                    right = False
+                elif event.key == pygame.K_DOWN:
+                    down = False
+
+        screen.blit(bgimg, (camera.apply(bg)))
+        camera.update(james)
+        james.update(down, left, right)
+        all_sprites_list.draw(screen)
+        pygame.display.update()
+
 
 if __name__ == '__main__':
-     main()
+    main()
