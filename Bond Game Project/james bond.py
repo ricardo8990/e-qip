@@ -7,8 +7,9 @@ GREEN = (   0, 255, 0)
 RED = ( 255, 0, 0)
 
 bond = 'images/bond skiing.png'
+e1 = 'images/e1.jif'
 theme1 = pygame.mixer.Sound("bond.wav")
-title_screen = 'images/scr2.jpg'
+title_screen = 'images/scr3.jpg'
 WIN_HEIGHT = 400
 WIN_WIDTH = 468
 HALF_WIDTH = int(WIN_WIDTH / 2)
