@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="-Windows size according to the resolution of the monitor&#10;-Added the animation for bones entering the house and dress with ski&#10;-Added random trees&#10;-Move images to a folder called &quot;images&quot;&#10;-Some other things that I don't remember">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Bond Game Project/images/Mario Bros - Snow Backgrounds.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Bond Game Project/images/PlayStation - Tales of Phantasia - Overworld Snowfield Battle Backdrop.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/james bond [deniz] v2.0.py" afterPath="$PROJECT_DIR$/Bond Game Project/james bond.py" />
+    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="-Windows size according to the resolution of the monitor&#10;-Correction to animation">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Bond Game Project/Classes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bond Game Project/images/bg.png" afterPath="$PROJECT_DIR$/Bond Game Project/images/bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bond Game Project/images/tree.png" afterPath="$PROJECT_DIR$/Bond Game Project/images/tree.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bond Game Project/james bond [karthika] v2.1.py" afterPath="$PROJECT_DIR$/Bond Game Project/james bond [karthika] v2.1.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bond Game Project/james bond.py" afterPath="$PROJECT_DIR$/Bond Game Project/james bond.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="e-qip.iws" />
@@ -31,11 +33,33 @@
       <file leaf-file-name="james bond.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bond Game Project/james bond.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3567073" vertical-offset="2322" max-vertical-offset="3978">
-              <caret line="142" column="15" selection-start-line="142" selection-start-column="15" selection-end-line="142" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.74338084" vertical-offset="2065" max-vertical-offset="2718">
+              <caret line="135" column="44" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Classes.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bond Game Project/Classes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="2070">
+              <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sprite.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file:///usr/lib64/python2.7/site-packages/pygame/sprite.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1904" max-vertical-offset="25686">
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,8 +67,8 @@
       <file leaf-file-name="james bond [karthika] v2.1.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bond Game Project/james bond [karthika] v2.1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1903" max-vertical-offset="4086">
-              <caret line="157" column="34" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3492" max-vertical-offset="4086">
+              <caret line="213" column="10" selection-start-line="213" selection-start-column="10" selection-end-line="213" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -72,6 +96,8 @@
         <option value="$PROJECT_DIR$/animation.py" />
         <option value="$PROJECT_DIR$/Bond Game Project/animation.py" />
         <option value="$PROJECT_DIR$/Bond Game Project/james bond [deniz] v2.0.py" />
+        <option value="$PROJECT_DIR$/Bond Game Project/james bond [karthika] v2.1.py" />
+        <option value="$PROJECT_DIR$/Bond Game Project/Classes.py" />
         <option value="$PROJECT_DIR$/Bond Game Project/james bond.py" />
       </list>
     </option>
@@ -108,6 +134,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -160,11 +187,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../G54CCS Connected Computing Scale" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
@@ -435,7 +461,11 @@
       <created>1415757603343</created>
       <updated>1415757603343</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="-Windows size according to the resolution of the monitor&#10;-Correction to animation">
+      <created>1415819004186</created>
+      <updated>1415819004186</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -447,11 +477,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3252149" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16802974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3982808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17975831" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4593796" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29083094" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25787964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -459,7 +490,6 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -499,7 +529,8 @@
     </option>
     <MESSAGE value="Windows size according to the resolution of the monitor" />
     <MESSAGE value="-Windows size according to the resolution of the monitor&#10;-Added the animation for bones entering the house and dress with ski&#10;-Added random trees&#10;-Move images to a folder called &quot;images&quot;&#10;-Some other things that I don't remember" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Windows size according to the resolution of the monitor&#10;-Added the animation for bones entering the house and dress with ski&#10;-Added random trees&#10;-Move images to a folder called &quot;images&quot;&#10;-Some other things that I don't remember" />
+    <MESSAGE value="-Windows size according to the resolution of the monitor&#10;-Correction to animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Windows size according to the resolution of the monitor&#10;-Correction to animation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -508,30 +539,11 @@
           <url>file://$PROJECT_DIR$/Bond Game Project/animation.py</url>
           <line>23</line>
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/Bond Game Project/james bond.py</url>
-          <line>138</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/examples/windows.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="1188">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/Nebula Wars/Nebula Wars.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="7146">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bond Game Project/images/sprites.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -779,7 +791,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/tree.png">
+    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/ski right.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/jamesr8.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -789,43 +811,51 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/bg.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file:///usr/lib64/python2.7/site-packages/pygame/sprite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.26153848" vertical-offset="2083" max-vertical-offset="25686">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1904" max-vertical-offset="25686">
           <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/ski right.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Bond Game Project/james bond [karthika] v2.1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2624" max-vertical-offset="4086">
-          <caret line="157" column="34" selection-start-line="157" selection-start-column="34" selection-end-line="157" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3492" max-vertical-offset="4086">
+          <caret line="213" column="10" selection-start-line="213" selection-start-column="10" selection-end-line="213" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/jamesr8.png">
+    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/tree.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file:///usr/lib64/python2.7/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19144602" vertical-offset="3182" max-vertical-offset="16272">
+          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bond Game Project/Classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1188" max-vertical-offset="2070">
+          <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Bond Game Project/james bond.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3567073" vertical-offset="2322" max-vertical-offset="3978">
-          <caret line="142" column="15" selection-start-line="142" selection-start-column="15" selection-end-line="142" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.74338084" vertical-offset="2065" max-vertical-offset="2718">
+          <caret line="135" column="44" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -156,7 +156,7 @@ def main():
 
      down = left = right = False
      bnd = pygame.image.load(bond)
-     bgimg = pygame.image.load('bg.png')
+     bgimg = pygame.image.load('images/bg.png')
      total_level_width  = 468
      total_level_height = 1000
      camera = Camera(complex_camera, total_level_width, total_level_height)
