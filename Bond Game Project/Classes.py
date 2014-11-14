@@ -2,7 +2,7 @@ import pygame
 from pygame import *
 
 airspeed_velocity = 100
-
+pygame.mixer.init(22050, -16, 2, 2096)
 
 class JamesBond(pygame.sprite.Sprite):
     def __init__(self, width, height):
@@ -15,12 +15,19 @@ class JamesBond(pygame.sprite.Sprite):
         self.y = self.rect.y
         self.level_width = width
         self.level_height = height
+        #self.theme1 = pygame.mixer.Sound("bond.wav")
+        self.bond_voice = pygame.mixer.Sound("sc_bond.wav")
+        
 
     def update_animation(self):
+        self.bond_voice.play()
         self.rect.x += 3
         self.index = self.index + 1 if self.index < 8 else 1
         image_name = "images/jamesr{}.png".format(self.index)
         self.image = pygame.image.load(image_name).convert_alpha()
+
+    def first_screen(self):
+        self.image = pygame.image.load('images/title_screen.jpg')
 
     def dress_to_ski(self):
         self.rect.x += 45
@@ -51,7 +58,6 @@ class JamesBond(pygame.sprite.Sprite):
             self.rel_rect.y += self.y
 
         self.rect = camera.apply(self)
-
 
 class Background(object):
     def __init__(self, x, y, img):

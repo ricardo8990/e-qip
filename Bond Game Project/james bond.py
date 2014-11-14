@@ -7,6 +7,8 @@ GREEN = (   0, 255, 0)
 RED = ( 255, 0, 0)
 
 bond = 'images/bond skiing.png'
+theme1 = pygame.mixer.Sound("bond.wav")
+title_screen = 'images/scr2.jpg'
 WIN_HEIGHT = 400
 WIN_WIDTH = 468
 HALF_WIDTH = int(WIN_WIDTH / 2)
@@ -76,69 +78,79 @@ def main():
     screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT), FLAGS, DEPTH)
     pygame.display.set_caption("007 JAMES BOND")
     clock = pygame.time.Clock()
-
-    #Initialize objects
-    james = Classes.JamesBond(total_level_width, total_level_height)
-    james.rect.x, james.rect.y = animation_start_point
-
-    all_sprites_list = pygame.sprite.Group()
-    obstacles = pygame.sprite.Group()
-
-    all_sprites_list.add(james)
-    down = left = right = False
-
-    camera = Classes.Camera(complex_camera, total_level_width, total_level_height)
-
-    bg = Classes.Background(0, 0, bgimg)
-
-    pygame.mouse.set_visible(0)
-
-    start_animation(james, screen, all_sprites_list, clock, bgimg)
-    screen.blit(bgimg, (0, 0))
-    james.dress_to_ski()
-    all_sprites_list.draw(screen)
-    pygame.display.flip()
-    chance_to_appear = 0.01
-
-    while True:
-        ticks = clock.tick(60)
+    theme1.play()
+    
+    
+    while(True):
+        
+        first_screen = pygame.image.load(title_screen)
+        screen.blit(first_screen,(0,0))
+        pygame.display.flip()
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                end()
+            if event.type==MOUSEBUTTONDOWN:
+                pygame.mixer.pause()
+                #Initialize objects
+                james = Classes.JamesBond(total_level_width, total_level_height)
+                james.rect.x, james.rect.y = animation_start_point
 
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    left = True
-                elif event.key == pygame.K_RIGHT:
-                    right = True
-                elif event.key == pygame.K_DOWN:
-                    down = True
+                all_sprites_list = pygame.sprite.Group()
+                obstacles = pygame.sprite.Group()
 
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    left = False
-                elif event.key == pygame.K_RIGHT:
-                    right = False
-                elif event.key == pygame.K_DOWN:
-                    down = False
+                all_sprites_list.add(james)
+                down = left = right = False
 
-        if random.random() < chance_to_appear:
-            tree = Classes.Tree(random.randrange(WIN_WIDTH), WIN_HEIGHT)
-            obstacles.add(tree)
-            all_sprites_list.add(tree)
-        for obstacle in obstacles:
-            obstacle.update(ticks)
-        for obstacle in obstacles:
-            if obstacle.get_y_position() <= 0:
-                obstacles.remove(obstacle)
-                all_sprites_list.remove(obstacle)
+                camera = Classes.Camera(complex_camera, total_level_width, total_level_height)
 
-        screen.blit(bgimg, (camera.apply(bg)))
-        camera.update(james)
-        james.update(down, left, right, camera)
-        all_sprites_list.draw(screen)
-        camera.apply(james)
-        pygame.display.update()
+                bg = Classes.Background(0, 0, bgimg)
+
+                pygame.mouse.set_visible(0)
+
+                start_animation(james, screen, all_sprites_list, clock, bgimg)
+                screen.blit(bgimg, (0, 0))
+                james.dress_to_ski()
+                all_sprites_list.draw(screen)
+                pygame.display.flip()
+                chance_to_appear = 0.01
+
+                while True:
+                    ticks = clock.tick(60)
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            end()
+
+                        elif event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_LEFT:
+                                left = True
+                            elif event.key == pygame.K_RIGHT:
+                                right = True
+                            elif event.key == pygame.K_DOWN:
+                                down = True
+
+                        elif event.type == pygame.KEYUP:
+                            if event.key == pygame.K_LEFT:
+                                left = False
+                            elif event.key == pygame.K_RIGHT:
+                                right = False
+                            elif event.key == pygame.K_DOWN:
+                                down = False
+
+                    if random.random() < chance_to_appear:
+                        tree = Classes.Tree(random.randrange(WIN_WIDTH), WIN_HEIGHT)
+                        obstacles.add(tree)
+                        all_sprites_list.add(tree)
+                    for obstacle in obstacles:
+                        obstacle.update(ticks)
+                    for obstacle in obstacles:
+                        if obstacle.get_y_position() <= 0:
+                            obstacles.remove(obstacle)
+                            all_sprites_list.remove(obstacle)
+
+                    screen.blit(bgimg, (camera.apply(bg)))
+                    camera.update(james)
+                    james.update(down, left, right, camera)
+                    all_sprites_list.draw(screen)
+                    camera.apply(james)
+                    pygame.display.update()
 
 
 if __name__ == '__main__':
