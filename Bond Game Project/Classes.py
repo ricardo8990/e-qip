@@ -4,8 +4,9 @@ from pygame import *
 airspeed_velocity = 100
 pygame.mixer.init(22050, -16, 2, 2096)
 
+
 class JamesBond(pygame.sprite.Sprite):
-    def __init__(self, width, height):
+    def __init__(self, width, height, name):
         super(JamesBond, self).__init__()
         self.index = 1
         self.image = pygame.image.load("images/jamesr1.png").convert_alpha()
@@ -15,12 +16,16 @@ class JamesBond(pygame.sprite.Sprite):
         self.y = self.rect.y
         self.level_width = width
         self.level_height = height
-        #self.theme1 = pygame.mixer.Sound("bond.wav")
+        self.points = 0
+        self.lives = 3
+        self.isPlaying = False
+        self.name = name
+        self.theme1 = pygame.mixer.Sound("main_theme.wav")
         self.bond_voice = pygame.mixer.Sound("sc_bond.wav")
-        
 
     def update_animation(self):
         self.bond_voice.play()
+        self.theme1.play(-1)
         self.rect.x += 3
         self.index = self.index + 1 if self.index < 8 else 1
         image_name = "images/jamesr{}.png".format(self.index)
@@ -38,6 +43,7 @@ class JamesBond(pygame.sprite.Sprite):
         if down:
             self.image = pygame.image.load('images/bond skiing.png').convert_alpha()
             self.y = 3
+            self.isPlaying = True
         if left:
             self.image = pygame.image.load("images/ski left.png").convert_alpha()
             self.x = -1
@@ -54,10 +60,14 @@ class JamesBond(pygame.sprite.Sprite):
 
         if self.rel_rect.y + self.y > self.level_height - self.image.get_height():
             self.rel_rect.y = self.level_height - self.image.get_height()
+            self.isPlaying = False
         else:
             self.rel_rect.y += self.y
 
         self.rect = camera.apply(self)
+
+        if self.isPlaying:
+            self.points += 50
 
 class Background(object):
     def __init__(self, x, y, img):
