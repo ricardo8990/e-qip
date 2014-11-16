@@ -1,9 +1,10 @@
-Version 4.1 of Bond:
+Version 4.2 of Bond:
 
-The trees now scroll along with the background.
+Agents track the player.
+Some sort of collision detection.
 
 To do:                         
-Adding agents that track the player  
-Collision detection      
-Implementing a score system
+Tying in collision detection with the lives system.  Right now it keeps on decreasing lives until game over.
+Looping back into the game after each life loss.
+Ending the game elegantly.
 Finding nice images
