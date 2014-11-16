@@ -31,6 +31,20 @@ def complex_camera(camera, target_rect):
     t = min(0, t)
     return Rect(l, t, w, h)
 
+def print_text(screen, text, x, y, size, colour):
+    game_font = pygame.font.Font(None, size)
+    text_render = game_font.render(text, 1, colour)
+    text_rect = text_render.get_rect()
+    text_rect.x = x
+    text_rect.y = y
+    screen.blit(text_render, text_rect)
+
+def show_points(screen, player):
+    first_line_text = "Power: %d" % player.power
+    second_line_text = "Lives: %d" % player.lives
+    print_text(screen, first_line_text, 0, 70, 15, BLACK)
+    print_text(screen, second_line_text, 0, 80, 15, BLACK)
+
 
 def start_animation(james, screen, all_sprites_list, clock, bgimg):
     while james.rect.x <= animation_end_point[0]:
@@ -40,22 +54,26 @@ def start_animation(james, screen, all_sprites_list, clock, bgimg):
         clock.tick(20)
         pygame.display.flip()
 
-
-# def addAgents():
-
 def addTrees(total_level_width,total_level_height, obstacle_loc,obstacles):
-    for i in range (15):        #maps the trees
+    for i in range (70):        #maps the trees
         row = random.randint(10,total_level_width-10)
-        col = random.randint(animation_end_point[0], total_level_height-65)
+        col = random.randint(animation_end_point[0], total_level_height-80)
         location  = [row, col]
         if not (location in obstacle_loc):      #makes sure two trees are not in the same location
             obstacle_loc.append(location)
             tree = Classes.Tree(location[0], location[1])
             obstacles.add(tree)
 
-#def handleCollision():
 
-#def showScores():  
+def addAgents(total_level_width,total_level_height, obstacle_loc,obstacles):
+    for i in range (2):        #maps the agents
+        row = random.randint(10,total_level_width-30)
+        col = random.randint(animation_end_point[0]-50,animation_end_point[0]+50)
+        location  = [row, col]
+        if not (location in obstacle_loc):      #makes sure two agents are not in the same location
+            obstacle_loc.append(location)
+            agent = Classes.Agent(location[0], location[1])
+            obstacles.add(agent) 
 
 def end():
     pygame.quit()
@@ -66,7 +84,7 @@ def main():
     #Initialize variables and window
     pygame.init()
     global WIN_HEIGHT, WIN_WIDTH, HALF_WIDTH, HALF_HEIGHT
-
+    end_screen = pygame.image.load('images/GameOver.png')
     bgimg = pygame.image.load('images/bg.png')
     total_level_width = bgimg.get_width()
     total_level_height = bgimg.get_height()
@@ -81,8 +99,8 @@ def main():
     pygame.display.set_caption("007 JAMES BOND")
     clock = pygame.time.Clock()
     theme1.play()
-    
-    
+    flag_agents = 0
+    obstacle_loc = []
     while(True):
         
         first_screen = pygame.image.load(title_screen)
@@ -106,18 +124,16 @@ def main():
                 bg = Classes.Background(0, 0, bgimg)
 
                 pygame.mouse.set_visible(0)
-
+                
+                addTrees(total_level_width,total_level_height,obstacle_loc,obstacles)
+                
                 start_animation(james, screen, all_sprites_list, clock, bgimg)
                 screen.blit(bgimg, (0, 0))
                 james.dress_to_ski()
                 all_sprites_list.draw(screen)
                 pygame.display.flip()
-                chance_to_appear = 0.01
-                obstacle_loc = []
-
-                addTrees(total_level_width,total_level_height,obstacle_loc,obstacles)
-                        
-                while True:
+                
+                while james.dead == False:
                     ticks = clock.tick(60)
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
@@ -138,17 +154,27 @@ def main():
                                 right = False
                             elif event.key == pygame.K_DOWN:
                                 down = False
-                    for obstacle in obstacles:
-                        if obstacle.rel_rect.y <= 0:
-                            obstacles.remove(obstacle)
-
+                    if james.rel_rect.y>animation_start_point[1]+300 and flag_agents==0:
+                        addAgents(total_level_width,total_level_height,obstacle_loc,obstacles)
+                        flag_agents = 1
                     screen.blit(bgimg, (camera.apply(bg)))
                     camera.update(james)
-                    james.update(down, left, right, camera)
+                    james.update(down, left, right, camera,obstacles)
+                    show_points(screen, james)
                     screen.blit(james.image,(camera.apply(james)))
-                    for obstacle in obstacles:          
+                    for obstacle in obstacles:
+                        if isinstance (obstacle,Classes.Agent):
+                            #if obstacle.rel)rect
+                            obstacle.trackPlayer(james)
                         screen.blit(obstacle.img, (camera.apply(obstacle)))
                     pygame.display.update()
+                    
+                #ends game in a terrible way...
+                screen.blit(end_screen,(0,0))
+                pygame.time.delay(300)
+                pygame.display.update()
+                pygame.time.delay(5000)
+                end()
 
 
 if __name__ == '__main__':

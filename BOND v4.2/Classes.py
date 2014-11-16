@@ -1,3 +1,5 @@
+import math
+import os
 import pygame
 from pygame import *
 
@@ -7,6 +9,9 @@ pygame.mixer.init(22050, -16, 2, 2096)
 class JamesBond(pygame.sprite.Sprite):
     def __init__(self, width, height):
         super(JamesBond, self).__init__()
+        self.power = 100
+        self.lives = 3
+        self.dead = False
         self.index = 1
         self.image = pygame.image.load("images/jamesr1.png").convert_alpha()
         self.rect = self.image.get_rect()
@@ -34,16 +39,16 @@ class JamesBond(pygame.sprite.Sprite):
         self.rel_rect = self.rect
         self.image = pygame.image.load('images/bond skiing.png').convert_alpha()
 
-    def update(self, down, left, right, camera):
+    def update(self, down, left, right, camera, obstacles):
         if down:
             self.image = pygame.image.load('images/bond skiing.png').convert_alpha()
-            self.y = 3
+            self.y = 3.9
         if left:
             self.image = pygame.image.load("images/ski left.png").convert_alpha()
-            self.x = -1
+            self.x = -3
         if right:
             self.image = pygame.image.load("images/ski right.png").convert_alpha()
-            self.x = 1
+            self.x = 3
 
         if self.rel_rect.x + self.x < 0:
             self.rel_rect.x = 0
@@ -58,52 +63,76 @@ class JamesBond(pygame.sprite.Sprite):
             self.rel_rect.y += self.y
 
         self.rect = camera.apply(self)
+        self.collide(obstacles)
+
+    def collide(self,obstacles):
+        
+        for obstacle in obstacles:
+            if self.rel_rect.colliderect(obstacle.rel_rect):
+                if isinstance(obstacle, Agent):    
+                    if self.lives == 0:
+                        self.dead = True
+                        print "GAME OVER"
+
+                    else:
+                        self.lives -= 1
+                        self.power = 100
+                        #somehow game should start again?
+                        
+                    print "lives left:", self.lives
+                if isinstance(obstacle, Tree):
+                    if self.lives == 0:
+                        self.dead = True
+                        print "GAME OVER"
+
+                    if self.power == 0 and self.lives != 0:
+                        self.lives -=1
+                        self.power = 100
+                    else:
+                        self.power -= 1
+                    self.rel_rect.bottom = obstacle.rel_rect.top
+                    self.rel_rect.x = self.rel_rect.x           
+                    print "power: ",self.power
+                    return False
+
+    
 
 class Background(object):
     def __init__(self, x, y, img):
         self.x = x
         self.y = y
         self.img = img
-        self.rel_rect = Rect(x, y, 468, 1000)
-
-
-class Agent(object):
-    def __init__(self, x, y, img):
-        self.x = x
-        self.y = y
-        self.img = img
+        self.rel_rect = Rect(x, y, self.img.get_rect().size[0],self.img.get_rect().size[1])
 
 
 class Obstacle(pygame.sprite.Sprite):
     def __init__(self, x, y, image_file):
         super(Obstacle, self).__init__()
         self.img = pygame.image.load(image_file).convert_alpha()
-        self.rel_rect = Rect(x,y,48,48)
+        self.rel_rect = Rect(x,y,self.img.get_rect().size[0],self.img.get_rect().size[1])
         self.x = x
         self.y = y
-'''
-    def set_y_position(self, y):
-        self.rect.y = y
-
-    def get_y_position(self):
-        return self.rect.y
-
-    def set_x_position(self, x):
-        self.rect.x = x
-
-    def get_x_position(self):
-        return self.rect.x
-
-    def update(self, ticks):
-        self.rect.y -= float(airspeed_velocity) * ticks / 1000
-'''
-
 
 class Tree(Obstacle):
     def __init__(self, x=0, y=0):
         super(Tree, self).__init__(x, y, "images/tree.png")
 
+class Agent(Obstacle):
+    def __init__(self, x=0, y=0):
+        super(Agent, self).__init__(x, y, "images/agent_skiing.png")
 
+    def trackPlayer(self, player):
+        dx, dy = self.rel_rect.x - player.rel_rect.x, self.rel_rect.y - player.rel_rect.y
+        dist = math.hypot(dx,dy)
+        try:
+            dx, dy = float(dx/dist), float(dy/dist)
+            self.rel_rect.x -= dx*3
+            self.rel_rect.y -= dy*4
+        except:
+            pass
+    
+
+        
 class Camera(object):
     def __init__(self, camera_func, width, height):
         self.camera_func = camera_func
