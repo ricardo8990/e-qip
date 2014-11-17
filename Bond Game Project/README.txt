@@ -1,12 +1,3 @@
-Version 2 of Bond:
+Let's use this folder only for other files that could be helpful but is not completely part of the game.
 
-The background scrolls according to the movements of the player.
-
-We can try to divide work here if you'd like...
-
-
-To do:                          People:
-Adding agents, obstacles  ---   Karthika
-Collision detection       ---   Deniz
-Implementing a score system
-Finding nice images
+For example, some other intro images or sprites that we used as example
