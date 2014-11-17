@@ -1,57 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="Acumulate points while is playing&#10;Display current points and lives&#10;Level is longer&#10;Ask for the name before start the game (for top scores)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Bond Game Project/mainTheme.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Bond Game Project/main_theme.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JAMES BOND/main_theme.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JAMES BOND/images/scr3.jpg" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/007.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/300px-007_logo.svg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/Mario Bros - Snow Backgrounds.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/PlayStation - Tales of Phantasia - Overworld Snowfield Battle Backdrop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/bond skiing.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/scr1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/scr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/sprites.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/spritesSkii.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/title.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/images/title_screen.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/james bond.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BOND v4.2/title.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/Classes.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/Constants.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/bond skiing.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/images/sprites" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/james bond [karthika] v2.1.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/james bond.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bond Game Project/title.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/Classes.py" afterPath="$PROJECT_DIR$/JAMES BOND/Classes.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/README.txt" afterPath="$PROJECT_DIR$/JAMES BOND/README.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/__init__.py" afterPath="$PROJECT_DIR$/JAMES BOND/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/bond skiing.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/bond skiing.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/bond.wav" afterPath="$PROJECT_DIR$/JAMES BOND/bond.wav" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/GameOver.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/GameOver.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/Gameover.jpg" afterPath="$PROJECT_DIR$/Bond Game Project/images/Gameover.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/agent_skiing.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/agent_skiing.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/bg.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/bg.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr1.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr2.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr3.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr4.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr4.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr5.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr5.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr6.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr6.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr7.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr7.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/jamesr8.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/jamesr8.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/ski left.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/ski left.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/ski right.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/ski right.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/images/tree.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/tree.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BOND v4.2/sc_bond.wav" afterPath="$PROJECT_DIR$/JAMES BOND/sc_bond.wav" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/james bond.py" afterPath="$PROJECT_DIR$/JAMES BOND/james bond.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bond Game Project/README.txt" afterPath="$PROJECT_DIR$/Bond Game Project/README.txt" />
+    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/007.mp3" afterPath="$PROJECT_DIR$/Other files/007.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/README.txt" afterPath="$PROJECT_DIR$/Other files/README.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/bond.wav" afterPath="$PROJECT_DIR$/Other files/bond.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/300px-007_logo.svg.png" afterPath="$PROJECT_DIR$/Other files/images/300px-007_logo.svg.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/Gameover.jpg" afterPath="$PROJECT_DIR$/Other files/images/Gameover.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/Mario Bros - Snow Backgrounds.png" afterPath="$PROJECT_DIR$/Other files/images/Mario Bros - Snow Backgrounds.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/PlayStation - Tales of Phantasia - Overworld Snowfield Battle Backdrop.png" afterPath="$PROJECT_DIR$/Other files/images/PlayStation - Tales of Phantasia - Overworld Snowfield Battle Backdrop.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/bg.png" afterPath="$PROJECT_DIR$/Other files/images/bg.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/bond skiing.png" afterPath="$PROJECT_DIR$/Other files/images/bond skiing.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/e1.gif" afterPath="$PROJECT_DIR$/Other files/images/e1.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr1.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr2.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr3.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr4.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr4.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr5.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr5.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr6.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr6.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr7.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr7.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/jamesr8.png" afterPath="$PROJECT_DIR$/Other files/images/jamesr8.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/scr1.jpg" afterPath="$PROJECT_DIR$/Other files/images/scr1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/scr2.jpg" afterPath="$PROJECT_DIR$/Other files/images/scr2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/scr3.jpg" afterPath="$PROJECT_DIR$/Other files/images/scr3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/ski left.png" afterPath="$PROJECT_DIR$/Other files/images/ski left.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/ski right.png" afterPath="$PROJECT_DIR$/Other files/images/ski right.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/sprites.png" afterPath="$PROJECT_DIR$/Other files/images/sprites.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/spritesSkii.png" afterPath="$PROJECT_DIR$/Other files/images/spritesSkii.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/title.png" afterPath="$PROJECT_DIR$/Other files/images/title.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/title_screen.jpg" afterPath="$PROJECT_DIR$/Other files/images/title_screen.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/images/tree.png" afterPath="$PROJECT_DIR$/Other files/images/tree.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/mainTheme.wav" afterPath="$PROJECT_DIR$/Other files/mainTheme.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/main_theme.wav" afterPath="$PROJECT_DIR$/Other files/main_theme.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Bond Game Project/sc_bond.wav" afterPath="$PROJECT_DIR$/Other files/sc_bond.wav" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="e-qip.iws" />
@@ -579,13 +560,18 @@
       <created>1416155288093</created>
       <updated>1416155288093</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="I have put all the code in one folder and renamed it to &quot;JAMES BOND&quot;&#10;&#10;I let the other folder for use it for other files that could be useful but are not part of the game (it can run without them)&#10;&#10;">
+      <created>1416240395080</created>
+      <updated>1416240395080</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-23" width="1370" height="795" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -600,7 +586,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -646,7 +631,8 @@
     <MESSAGE value="-Windows size according to the resolution of the monitor&#10;-Correction to animation" />
     <MESSAGE value="Move classes to classes file&#10;Correct bugs with bonds&#10;Improvements to the background and trees" />
     <MESSAGE value="Acumulate points while is playing&#10;Display current points and lives&#10;Level is longer&#10;Ask for the name before start the game (for top scores)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Acumulate points while is playing&#10;Display current points and lives&#10;Level is longer&#10;Ask for the name before start the game (for top scores)" />
+    <MESSAGE value="I have put all the code in one folder and renamed it to &quot;JAMES BOND&quot;&#10;&#10;I let the other folder for use it for other files that could be useful but are not part of the game (it can run without them)&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="I have put all the code in one folder and renamed it to &quot;JAMES BOND&quot;&#10;&#10;I let the other folder for use it for other files that could be useful but are not part of the game (it can run without them)&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -703,7 +689,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/sprites.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/sprites.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -715,37 +701,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/jamesr3.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/jamesr3.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/bond skiing.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/bond skiing.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/bg.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/bg.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/ski right.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/ski right.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/jamesr8.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/jamesr8.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/ski left.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/ski left.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/tree.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/tree.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -757,27 +743,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/e1.gif">
+    <entry file="file://$PROJECT_DIR$/Other files/images/e1.gif">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/300px-007_logo.svg.png">
+    <entry file="file://$PROJECT_DIR$/Other files/images/300px-007_logo.svg.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/scr1.jpg">
+    <entry file="file://$PROJECT_DIR$/Other files/images/scr1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/scr2.jpg">
+    <entry file="file://$PROJECT_DIR$/Other files/images/scr2.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/scr3.jpg">
+    <entry file="file://$PROJECT_DIR$/Other files/images/scr3.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -831,7 +817,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/images/Gameover.jpg">
+    <entry file="file://$PROJECT_DIR$/Other files/images/Gameover.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -906,7 +892,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/README.txt">
+    <entry file="file://$PROJECT_DIR$/Other files/README.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08089887" vertical-offset="0" max-vertical-offset="445">
           <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
@@ -914,7 +900,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bond Game Project/title.png">
+    <entry file="file://$PROJECT_DIR$/Other files/title.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
