@@ -1,4 +1,4 @@
-import math
+import cmath
 import os
 import pygame
 from pygame import *
@@ -77,6 +77,9 @@ class JamesBond(pygame.sprite.Sprite):
                     else:
                         self.lives -= 1
                         self.power = 100
+                        self.rel_rect.top += 20
+                        obstacle.rel_rect.bottom -= 50
+                        
                         #somehow game should start again?
                         
                     print "lives left:", self.lives
@@ -119,13 +122,15 @@ class Tree(Obstacle):
 
 class Agent(Obstacle):
     def __init__(self, x=0, y=0):
+        self.dist = 0
         super(Agent, self).__init__(x, y, "images/agent_skiing.png")
 
     def trackPlayer(self, player):
         dx, dy = self.rel_rect.x - player.rel_rect.x, self.rel_rect.y - player.rel_rect.y
-        dist = math.hypot(dx,dy)
+        self.dist = cmath.sqrt(dx*dx+dy*dy)
         try:
-            dx, dy = float(dx/dist), float(dy/dist)
+            
+            dx, dy = float(dx/self.dist.real), float(dy/self.dist.real)
             self.rel_rect.x -= dx*3
             self.rel_rect.y -= dy*4
         except:

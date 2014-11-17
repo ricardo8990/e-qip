@@ -1,4 +1,4 @@
-import pygame, sys, math, random, Classes
+import pygame, sys, random, Classes
 from pygame import *
 
 BLACK = (   0, 0, 0)
