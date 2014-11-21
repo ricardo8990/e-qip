@@ -11,6 +11,7 @@ class JamesBond(pygame.sprite.Sprite):
         super(JamesBond, self).__init__()
         self.power = 100
         self.lives = 3
+        self.mission = 0
         self.dead = False
         self.index = 1
         self.image = pygame.image.load("images/jamesr1.png").convert_alpha()
@@ -98,6 +99,13 @@ class JamesBond(pygame.sprite.Sprite):
                     print "power: ", self.power
                     return False
 
+                if isinstance(obstacle, Coin):
+                    self.mission += 5
+                    print "mission: ", self.mission
+                    obstacles.remove(obstacle)
+                    
+                    
+
 
 class Background(object):
     def __init__(self, x, y, img):
@@ -125,13 +133,38 @@ class Agent(Obstacle):
     def __init__(self, x=0, y=0):
         self.dist = 0
         super(Agent, self).__init__(x, y, "images/agent_skiing.png")
+        
 
     def track_player(self, player):
-        dx, dy = self.rel_rect.x - player.rel_rect.x, self.rel_rect.y - player.rel_rect.y
-        self.dist = cmath.sqrt(dx * dx + dy * dy)
-        dx, dy = float(dx / self.dist.real), float(dy / self.dist.real)
-        self.rel_rect.x -= dx * 3
-        self.rel_rect.y -= dy * 4
+        try:
+            dx, dy = self.rel_rect.x - player.rel_rect.x, self.rel_rect.y - player.rel_rect.y
+            self.dist = cmath.sqrt(dx * dx + dy * dy)
+            dx, dy = float(dx / self.dist.real), float(dy / self.dist.real)
+            self.rel_rect.x -= dx * 3
+            self.rel_rect.y -= dy * 4
+        except:
+            pass
+
+class Coin(Obstacle):
+    def __init__(self, x=0, y=0):
+        self.angle = 1
+        super(Coin,self).__init__(x,y,"images/coin1.png")
+        self.image_set = []
+        self.image_set.append(pygame.image.load("images/coin1.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin2.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin3.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin4.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin5.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin6.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin7.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin8.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin9.png").convert_alpha())
+        self.image_set.append(pygame.image.load("images/coin10.png").convert_alpha())
+
+    def update_animation(self):
+        self.angle = self.angle + 1 if self.angle < 9 else 1
+        self.img = self.image_set[self.angle]
+
 
 
 class Camera(object):

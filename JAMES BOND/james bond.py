@@ -49,9 +49,11 @@ def print_text(screen, text, x, y, size, colour):
 def show_points(screen, player):
     first_line_text = "Power: %d" % player.power
     second_line_text = "Lives: %d" % player.lives
+    third_line_text = "Mission: %d" % player.mission
     print_text(screen, player.name, 0, 60, 15, BLACK)
     print_text(screen, first_line_text, 0, 70, 15, BLACK)
     print_text(screen, second_line_text, 0, 80, 15, BLACK)
+    print_text(screen, third_line_text, 0, 90, 15, BLACK)
 
 
 def start_animation(james, screen, all_sprites_list, clock, bgimg):
@@ -93,8 +95,8 @@ def show_intro(screen):
 
 def add_trees(total_level_width, total_level_height, obstacle_loc, obstacles):
     for i in range(70):  # maps the trees
-        row = random.randint(10, total_level_width - 10)
-        col = random.randint(animation_end_point[0], total_level_height - 80)
+        row = random.randint(30, total_level_width - 30)
+        col = random.randint(animation_end_point[0], total_level_height - 120)
         location = [row, col]
         if not (location in obstacle_loc):  # makes sure two trees are not in the same location
             obstacle_loc.append(location)
@@ -111,6 +113,21 @@ def add_agents(total_level_width, obstacle_loc, obstacles):
             obstacle_loc.append(location)
             agent = Classes.Agent(location[0], location[1])
             obstacles.add(agent)
+
+def add_coins(total_level_width, total_level_height,obstacle_loc, obstacles):
+    for i in range(10):  # maps the coins
+        row = random.randint(50, total_level_width - 50)
+        col = random.randint(animation_end_point[0], total_level_height - 300)
+        
+        for j in range(4):
+            col+=80
+            location = [row, col]
+            #print "i*20:", location
+            if not (location in obstacle_loc): # makes sure two coins are not in the same location
+                #print location
+                obstacle_loc.append(location)
+                coin = Classes.Coin(location[0], location[1])
+                obstacles.add(coin)
 
 
 def end():
@@ -157,6 +174,7 @@ def main():
     pygame.mouse.set_visible(0)
 
     add_trees(total_level_width, total_level_height, obstacle_loc, obstacles)
+    add_coins(total_level_width, total_level_height, obstacle_loc, obstacles)
 
     start_animation(james, screen, all_sprites_list, clock, bgimg)
     screen.blit(bgimg, (0, 0))
@@ -165,7 +183,6 @@ def main():
     pygame.display.flip()
 
     while not james.dead:
-        clock.tick(60)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 end()
@@ -196,6 +213,10 @@ def main():
         for obstacle in obstacles:
             if isinstance(obstacle, Classes.Agent):
                 obstacle.track_player(james)
+                
+            if isinstance(obstacle,Classes.Coin):
+                obstacle.update_animation()
+                
             screen.blit(obstacle.img, (camera.apply(obstacle)))
         pygame.display.update()
 
