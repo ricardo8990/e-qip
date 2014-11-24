@@ -17,8 +17,8 @@ heli_sound = pygame.mixer.Sound("sounds/heli.wav")
 title_screen = 'images/scr3.jpg'
 escape = pygame.image.load('images/esc.png')
 end_screen = pygame.image.load('images/GameOver.png')
-WIN_HEIGHT = 400
-WIN_WIDTH = 468
+WIN_HEIGHT = 800
+WIN_WIDTH = 868
 HALF_WIDTH = int(WIN_WIDTH / 2)
 HALF_HEIGHT = int(WIN_HEIGHT / 2)
 DEPTH = 32
@@ -152,17 +152,23 @@ def score_sheet(screen, name, player):
     read_file.close()
     sortedKey = reversed(sorted(d.items(), key = lambda t:t[1]))
     count = 0
-    text_x = 70
-    print "--------SCORE BOARD---------"
+    text_x = 250
+    print "--------HIGH SCORE---------"
     
     for i in sortedKey:  
         line = i[0]+'\t'+str(i[1])
         print line
+        n = 0 
+        t_width = 10
+        for z in range(2):
+            print_text(screen, str(i[n]), t_width, text_x, 25, BLACK)
+            t_width +=70
+            n+=1
         count+=1
         if count >= 5:
             break
-        print_text(screen, line, 0, text_x, 15, BLACK)
-        text_x+=10
+        
+        text_x+=20
         #pygame.display.flip()
 
     
@@ -289,23 +295,25 @@ def main():
             pygame.time.delay(500)  
             
             pygame.display.update()
-            pygame.time.delay(2000)
+            #pygame.time.delay(2000)
             score_sheet(screen, name, james)
-
-            break
+            pygame.display.update()
+            #continue
             #james.won = True
             #pygame.time.delay(5000)
             '''
-            if event.type==MOUSEBUTTONDOWN:
+            if event.type==pygame.MOUSEBUTTONDOWN:
                 james.mission = 0
                 james.lives = 3
                 james.power = 100
                 james.rel_rect.y = 50
-                main()
+                #main()
             if event.type==QUIT:
                 end()
             '''
-                   
+            
+            break
+        
         for obstacle in obstacles:
             if isinstance(obstacle, Classes.Agent):
                 obstacle.track_player(james)
