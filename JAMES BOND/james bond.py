@@ -204,7 +204,7 @@ def main():
     # Initialize variables and window
     pygame.init()
     global WIN_HEIGHT, WIN_WIDTH, HALF_WIDTH, HALF_HEIGHT
-    end_screen = pygame.image.load('images/GameOver.png')
+    end_screen = pygame.image.load('images/dead.png')
     bgimg = pygame.image.load('images/bg.png')
     heli = pygame.image.load("images/heli.png")
     total_level_width = bgimg.get_width()
@@ -333,6 +333,8 @@ def main():
         pygame.time.delay(1000)
         pygame.display.update()
         pygame.time.delay(4000)
+        score_sheet(screen, name, james)
+        pygame.display.update()
         end()
 
 
