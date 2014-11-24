@@ -13,6 +13,7 @@ class JamesBond(pygame.sprite.Sprite):
         self.lives = 3
         self.mission = 0
         self.dead = False
+        self.won = False
         self.index = 1
         self.image = pygame.image.load("images/jamesr1.png").convert_alpha()
         self.rect = self.image.get_rect()
@@ -22,8 +23,8 @@ class JamesBond(pygame.sprite.Sprite):
         self.level_width = width
         self.level_height = height
         self.name = name
-        self.theme1 = pygame.mixer.Sound("main_theme.wav")
-        self.bond_voice = pygame.mixer.Sound("sc_bond.wav")
+        self.theme1 = pygame.mixer.Sound("sounds/main_theme.wav")
+        self.bond_voice = pygame.mixer.Sound("sounds/sc_bond.wav")
 
     def update_animation(self):
         self.bond_voice.play()
@@ -42,6 +43,7 @@ class JamesBond(pygame.sprite.Sprite):
         self.image = pygame.image.load('images/bond skiing.png').convert_alpha()
 
     def update(self, down, left, right, camera, obstacles):
+        
         if down:
             self.image = pygame.image.load('images/bond skiing.png').convert_alpha()
             self.y = 3.9
@@ -68,9 +70,13 @@ class JamesBond(pygame.sprite.Sprite):
         self.collide(obstacles)
 
     def collide(self, obstacles):
+        coin_sound = pygame.mixer.Sound("sounds/coin.aiff")
+        tree_sound = pygame.mixer.Sound("sounds/tree.wav")
+        agent_sound = pygame.mixer.Sound("sounds/agent.wav")
         for obstacle in obstacles:
             if self.rel_rect.colliderect(obstacle.rel_rect):
                 if isinstance(obstacle, Agent):
+                    agent_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -85,6 +91,7 @@ class JamesBond(pygame.sprite.Sprite):
 
                     print "lives left:", self.lives
                 if isinstance(obstacle, Tree):
+                    tree_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -102,6 +109,7 @@ class JamesBond(pygame.sprite.Sprite):
                 if isinstance(obstacle, Coin):
                     self.mission += 5
                     print "mission: ", self.mission
+                    coin_sound.play()
                     obstacles.remove(obstacle)
                     
                     
@@ -147,7 +155,7 @@ class Agent(Obstacle):
 
 class Coin(Obstacle):
     def __init__(self, x=0, y=0):
-        self.angle = 1
+        self.angle = 1      
         super(Coin,self).__init__(x,y,"images/coin1.png")
         self.image_set = []
         self.image_set.append(pygame.image.load("images/coin1.png").convert_alpha())

@@ -2,7 +2,7 @@ import random
 import sys
 import pygame
 from pygame import *
-
+import time
 import Classes
 
 
@@ -13,7 +13,10 @@ RED = (255, 0, 0)
 
 bond = 'images/bond skiing.png'
 theme1 = pygame.mixer.Sound("bond.wav")
+heli_sound = pygame.mixer.Sound("sounds/heli.wav")
 title_screen = 'images/scr3.jpg'
+escape = pygame.image.load('images/esc.png')
+end_screen = pygame.image.load('images/GameOver.png')
 WIN_HEIGHT = 400
 WIN_WIDTH = 468
 HALF_WIDTH = int(WIN_WIDTH / 2)
@@ -94,7 +97,7 @@ def show_intro(screen):
 
 
 def add_trees(total_level_width, total_level_height, obstacle_loc, obstacles):
-    for i in range(70):  # maps the trees
+    for i in range(20):  # maps the trees
         row = random.randint(30, total_level_width - 30)
         col = random.randint(animation_end_point[0], total_level_height - 120)
         location = [row, col]
@@ -130,9 +133,65 @@ def add_coins(total_level_width, total_level_height,obstacle_loc, obstacles):
                 obstacles.add(coin)
 
 
+def score_sheet(screen, name, player):
+
+    write_file = open("high_score.txt","a")
+    write_file.write("{},".format(name))
+    write_file.write("{}\n".format(player.mission))
+    write_file.close()
+    
+    read_file = open("high_score.txt", "r")
+    d = {}
+    for line in read_file:
+        x = line.split(",")
+        a = x[0]
+        b = int(x[1])
+        #c = len(b)-1
+        #b = b[0:c]
+        d[a] = b
+    read_file.close()
+    sortedKey = reversed(sorted(d.items(), key = lambda t:t[1]))
+    count = 0
+    text_x = 70
+    print "--------SCORE BOARD---------"
+    
+    for i in sortedKey:  
+        line = i[0]+'\t'+str(i[1])
+        print line
+        count+=1
+        if count >= 5:
+            break
+        print_text(screen, line, 0, text_x, 15, BLACK)
+        text_x+=10
+        #pygame.display.flip()
+
+    
+        
+
+
+    """
+    text_x = 30
+    N = 5
+    screen.blit(end_screen, (0, 0))
+    text_file = open("high_score.txt","a+")
+    text_file.write("{}".format(name))
+    text_file.write("  {}\n".format(player.mission))
+    #for i in range(N):
+        #line = text_file.next().strip()
+        #print line
+
+    #print_text(screen, line, text_x, WIN_HEIGHT-250, 20, BLACK)
+    
+    text_file.close()
+    
+    pygame.display.flip()
+    """
+
+
 def end():
     pygame.quit()
     sys.exit()
+
 
 
 def main():
@@ -141,6 +200,7 @@ def main():
     global WIN_HEIGHT, WIN_WIDTH, HALF_WIDTH, HALF_HEIGHT
     end_screen = pygame.image.load('images/GameOver.png')
     bgimg = pygame.image.load('images/bg.png')
+    heli = pygame.image.load("images/heli.png")
     total_level_width = bgimg.get_width()
     total_level_height = bgimg.get_height()
 
@@ -211,6 +271,41 @@ def main():
         james.update(down, left, right, camera, obstacles)
         show_points(screen, james)
         screen.blit(james.image, (camera.apply(james)))
+
+        #while succcess:
+        if james.rel_rect.y > int(total_level_height*3.95/4): 
+            theme1.fadeout(4000)
+            heli_sound.play()
+            heli_x,heli_y = WIN_WIDTH-WIN_WIDTH,WIN_HEIGHT-200
+            #for i in range(100):
+            screen.blit(heli,(heli_x,heli_y))
+            #    heli_x+=10
+            #time.sleep(2)
+            
+            pygame.display.flip()
+            pygame.display.update()
+            screen.blit(escape,(0,0))
+            pygame.mouse.set_visible(1)
+            pygame.time.delay(500)  
+            
+            pygame.display.update()
+            pygame.time.delay(2000)
+            score_sheet(screen, name, james)
+
+            break
+            #james.won = True
+            #pygame.time.delay(5000)
+            '''
+            if event.type==MOUSEBUTTONDOWN:
+                james.mission = 0
+                james.lives = 3
+                james.power = 100
+                james.rel_rect.y = 50
+                main()
+            if event.type==QUIT:
+                end()
+            '''
+                   
         for obstacle in obstacles:
             if isinstance(obstacle, Classes.Agent):
                 obstacle.track_player(james)
@@ -221,13 +316,18 @@ def main():
             screen.blit(obstacle.img, (camera.apply(obstacle)))
         pygame.display.update()
 
+        
+                
+    if james.dead:
     #ends game in a terrible way...
-    screen.blit(end_screen, (0, 0))
-    pygame.time.delay(300)
-    pygame.display.update()
-    pygame.time.delay(5000)
-    end()
+        screen.blit(end_screen, (0, 0))
+        score_sheet(screen, name, james)
+        pygame.time.delay(1000)
+        pygame.display.update()
+        pygame.time.delay(4000)
+        end()
 
 
 if __name__ == '__main__':
+    
     main()
