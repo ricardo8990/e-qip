@@ -183,6 +183,7 @@ def main():
     pygame.display.flip()
 
     while not james.dead:
+        clock.tick(60)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 end()
