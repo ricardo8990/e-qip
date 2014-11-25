@@ -7,11 +7,11 @@ pygame.mixer.init(22050, -16, 2, 2096)
 
 
 class JamesBond(pygame.sprite.Sprite):
-    def __init__(self, width, height, name):
+    def __init__(self, width, height, name, power=100, lives=3, mission=0):
         super(JamesBond, self).__init__()
-        self.power = 100
-        self.lives = 3
-        self.mission = 0
+        self.power = power
+        self.lives = lives
+        self.mission = mission
         self.dead = False
         self.won = False
         self.index = 1
@@ -76,7 +76,7 @@ class JamesBond(pygame.sprite.Sprite):
         for obstacle in obstacles:
             if self.rel_rect.colliderect(obstacle.rel_rect):
                 if isinstance(obstacle, Agent):
-                    #agent_sound.play()
+                    agent_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -91,7 +91,7 @@ class JamesBond(pygame.sprite.Sprite):
 
                     print "lives left:", self.lives
                 if isinstance(obstacle, Tree):
-                    #tree_sound.play()
+                    tree_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -109,7 +109,7 @@ class JamesBond(pygame.sprite.Sprite):
                 if isinstance(obstacle, Coin):
                     self.mission += 5
                     print "mission: ", self.mission
-                    #coin_sound.play()
+                    coin_sound.play()
                     obstacles.remove(obstacle)
 
 

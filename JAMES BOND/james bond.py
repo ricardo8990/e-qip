@@ -132,7 +132,7 @@ def add_coins(total_level_width, total_level_height, obstacle_loc, obstacles):
             location = [row, col]
             # print "i*20:", location
             if not (location in obstacle_loc):  # makes sure two coins are not in the same location
-                #print location
+                # print location
                 obstacle_loc.append(location)
                 coin = Classes.Coin(location[0], location[1])
                 obstacles.add(coin)
@@ -151,7 +151,7 @@ def score_sheet(screen, name, player):
         a = x[0]
         b = int(x[1])
         # c = len(b)-1
-        #b = b[0:c]
+        # b = b[0:c]
         d[a] = b
     read_file.close()
     sortedKey = reversed(sorted(d.items(), key=lambda t: t[1]))
@@ -221,10 +221,10 @@ def main():
     clock = pygame.time.Clock()
 
     name = show_intro(screen)
+    james = Classes.JamesBond(total_level_width, total_level_height, name)
 
     while True:
         # Initialize objects
-        james = Classes.JamesBond(total_level_width, total_level_height, name)
         james.rect.x, james.rect.y = animation_start_point
 
         all_sprites_list = pygame.sprite.Group()
@@ -307,7 +307,7 @@ def main():
         theme1.fadeout(4000)
         heli_sound.play()
         heli_x, heli_y = WIN_WIDTH - WIN_WIDTH, WIN_HEIGHT - 200
-        #for i in range(100):
+        # for i in range(100):
         screen.blit(heli, (heli_x, heli_y))
         #    heli_x+=10
         #time.sleep(2)
@@ -331,6 +331,8 @@ def main():
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     level += 1
+                    james = Classes.JamesBond(total_level_width, total_level_height, name, james.power, james.lives,
+                                              james.mission)
                     show_last_screen = False
                 if event.type == QUIT:
                     end()
