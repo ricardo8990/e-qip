@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="Game starts in level 1 and continues increasing until James dead">
+    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="Fix with the points, now you preserve your points, lives and power through the levels">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/JAMES BOND/bond.wav" afterPath="$PROJECT_DIR$/JAMES BOND/sounds/bond.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/JAMES BOND/main_theme.wav" afterPath="$PROJECT_DIR$/JAMES BOND/sounds/main_theme.wav" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/JAMES BOND/sc_bond.wav" afterPath="$PROJECT_DIR$/JAMES BOND/sounds/sc_bond.wav" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/Classes.py" afterPath="$PROJECT_DIR$/JAMES BOND/Classes.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/high_score.txt" afterPath="$PROJECT_DIR$/JAMES BOND/high_score.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/james bond.py" afterPath="$PROJECT_DIR$/JAMES BOND/james bond.py" />
@@ -28,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="james bond.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="james bond.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JAMES BOND/james bond.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49031296" vertical-offset="5575" max-vertical-offset="6264">
-              <caret line="328" column="36" selection-start-line="328" selection-start-column="36" selection-end-line="328" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="6300">
+              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -40,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Classes.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Classes.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JAMES BOND/Classes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3384">
-              <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.21460506" vertical-offset="324" max-vertical-offset="3384">
+              <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -80,8 +83,8 @@
         <option value="$PROJECT_DIR$/BOND v4.2/Classes.py" />
         <option value="$PROJECT_DIR$/BOND v4.2/james bond.py" />
         <option value="$PROJECT_DIR$/Bond Game Project/README.txt" />
-        <option value="$PROJECT_DIR$/JAMES BOND/Classes.py" />
         <option value="$PROJECT_DIR$/JAMES BOND/james bond.py" />
+        <option value="$PROJECT_DIR$/JAMES BOND/Classes.py" />
       </list>
     </option>
   </component>
@@ -145,25 +148,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Other files" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="e-qip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="e-qip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Other files" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="JAMES BOND" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -178,6 +163,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="JAMES BOND" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sounds" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,6 +227,7 @@
       <recent name="$PROJECT_DIR$/examples/Images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/JAMES BOND/sounds" />
       <recent name="$PROJECT_DIR$/Bond Game Project/images" />
       <recent name="$PROJECT_DIR$/Bond Game Project" />
       <recent name="$PROJECT_DIR$/images" />
@@ -530,7 +520,11 @@
       <created>1416935861568</created>
       <updated>1416935861568</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fix with the points, now you preserve your points, lives and power through the levels">
+      <created>1416937155592</created>
+      <updated>1416937155592</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -541,10 +535,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32285714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32234958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13159852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4457143" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19479553" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44555873" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28510028" sideWeight="0.50037175" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44412607" sideWeight="0.49962825" order="2" side_tool="false" content_ui="tabs" />
@@ -601,7 +595,8 @@
     <MESSAGE value="Renamed to &quot;other files&quot;&#10;&#10;" />
     <MESSAGE value="Clock tick in 60" />
     <MESSAGE value="Game starts in level 1 and continues increasing until James dead" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game starts in level 1 and continues increasing until James dead" />
+    <MESSAGE value="Fix with the points, now you preserve your points, lives and power through the levels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix with the points, now you preserve your points, lives and power through the levels" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -879,21 +874,21 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAMES BOND/Classes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3384">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JAMES BOND/james bond.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49031296" vertical-offset="5575" max-vertical-offset="6264">
-          <caret line="328" column="36" selection-start-line="328" selection-start-column="36" selection-end-line="328" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="6300">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAMES BOND/Classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21460506" vertical-offset="324" max-vertical-offset="3384">
+          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>

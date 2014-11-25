@@ -12,8 +12,8 @@ GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
 bond = 'images/bond skiing.png'
-theme1 = pygame.mixer.Sound("bond.wav")
-heli_sound = pygame.mixer.Sound("sounds/heli.wav")
+theme1 = pygame.mixer.Sound("sounds/bond.wav")
+heli_sound = pygame.mixer.Sound("sounds/Heli.wav")
 title_screen = 'images/scr3.jpg'
 escape = pygame.image.load('images/esc.png')
 end_screen = pygame.image.load('images/GameOver.png')
@@ -93,6 +93,8 @@ def show_intro(screen):
                     name = name[:-1]
                 elif evt.key == K_RETURN and name != "":
                     completed = True
+            elif evt.type == QUIT:
+                end()
         print_text(screen, name, 100, text_y, 30, BLACK)
         pygame.display.flip()
 
@@ -304,8 +306,8 @@ def main():
             pygame.display.update()
             end()
 
-        theme1.fadeout(4000)
-        heli_sound.play()
+        #theme1.fadeout(4000)
+        #heli_sound.play()
         heli_x, heli_y = WIN_WIDTH - WIN_WIDTH, WIN_HEIGHT - 200
         # for i in range(100):
         screen.blit(heli, (heli_x, heli_y))

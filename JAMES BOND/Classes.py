@@ -25,6 +25,9 @@ class JamesBond(pygame.sprite.Sprite):
         self.name = name
         self.theme1 = pygame.mixer.Sound("sounds/main_theme.wav")
         self.bond_voice = pygame.mixer.Sound("sounds/sc_bond.wav")
+        self.coin_sound = pygame.mixer.Sound("sounds/coin.aiff")
+        self.tree_sound = pygame.mixer.Sound("sounds/tree.wav")
+        self.agent_sound = pygame.mixer.Sound("sounds/agent.wav")
 
     def update_animation(self):
         self.bond_voice.play()
@@ -70,13 +73,10 @@ class JamesBond(pygame.sprite.Sprite):
         self.collide(obstacles)
 
     def collide(self, obstacles):
-        coin_sound = pygame.mixer.Sound("sounds/coin.aiff")
-        tree_sound = pygame.mixer.Sound("sounds/tree.wav")
-        agent_sound = pygame.mixer.Sound("sounds/agent.wav")
         for obstacle in obstacles:
             if self.rel_rect.colliderect(obstacle.rel_rect):
                 if isinstance(obstacle, Agent):
-                    agent_sound.play()
+                    self.agent_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -91,7 +91,7 @@ class JamesBond(pygame.sprite.Sprite):
 
                     print "lives left:", self.lives
                 if isinstance(obstacle, Tree):
-                    tree_sound.play()
+                    self.tree_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -109,7 +109,7 @@ class JamesBond(pygame.sprite.Sprite):
                 if isinstance(obstacle, Coin):
                     self.mission += 5
                     print "mission: ", self.mission
-                    coin_sound.play()
+                    self.coin_sound.play()
                     obstacles.remove(obstacle)
 
 
