@@ -42,11 +42,11 @@ class JamesBond(pygame.sprite.Sprite):
         self.rel_rect = self.rect
         self.image = pygame.image.load('images/bond skiing.png').convert_alpha()
 
-    def update(self, down, left, right, camera, obstacles):
-        
+    def update(self, down, left, right, camera, obstacles, level):
+
         if down:
             self.image = pygame.image.load('images/bond skiing.png').convert_alpha()
-            self.y = 3.9
+            self.y = 3.9 * level
         if left:
             self.image = pygame.image.load("images/ski left.png").convert_alpha()
             self.x = -3
@@ -76,7 +76,7 @@ class JamesBond(pygame.sprite.Sprite):
         for obstacle in obstacles:
             if self.rel_rect.colliderect(obstacle.rel_rect):
                 if isinstance(obstacle, Agent):
-                    agent_sound.play()
+                    #agent_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -91,7 +91,7 @@ class JamesBond(pygame.sprite.Sprite):
 
                     print "lives left:", self.lives
                 if isinstance(obstacle, Tree):
-                    tree_sound.play()
+                    #tree_sound.play()
                     if self.lives == 0:
                         self.dead = True
                         print "GAME OVER"
@@ -109,10 +109,8 @@ class JamesBond(pygame.sprite.Sprite):
                 if isinstance(obstacle, Coin):
                     self.mission += 5
                     print "mission: ", self.mission
-                    coin_sound.play()
+                    #coin_sound.play()
                     obstacles.remove(obstacle)
-                    
-                    
 
 
 class Background(object):
@@ -141,22 +139,23 @@ class Agent(Obstacle):
     def __init__(self, x=0, y=0):
         self.dist = 0
         super(Agent, self).__init__(x, y, "images/agent_skiing.png")
-        
 
-    def track_player(self, player):
+
+    def track_player(self, player, level):
         try:
             dx, dy = self.rel_rect.x - player.rel_rect.x, self.rel_rect.y - player.rel_rect.y
             self.dist = cmath.sqrt(dx * dx + dy * dy)
             dx, dy = float(dx / self.dist.real), float(dy / self.dist.real)
             self.rel_rect.x -= dx * 3
-            self.rel_rect.y -= dy * 4
+            self.rel_rect.y -= dy * 4 * level
         except:
             pass
 
+
 class Coin(Obstacle):
     def __init__(self, x=0, y=0):
-        self.angle = 1      
-        super(Coin,self).__init__(x,y,"images/coin1.png")
+        self.angle = 1
+        super(Coin, self).__init__(x, y, "images/coin1.png")
         self.image_set = []
         self.image_set.append(pygame.image.load("images/coin1.png").convert_alpha())
         self.image_set.append(pygame.image.load("images/coin2.png").convert_alpha())
@@ -172,7 +171,6 @@ class Coin(Obstacle):
     def update_animation(self):
         self.angle = self.angle + 1 if self.angle < 9 else 1
         self.img = self.image_set[self.angle]
-
 
 
 class Camera(object):

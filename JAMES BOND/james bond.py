@@ -59,13 +59,17 @@ def show_points(screen, player):
     print_text(screen, third_line_text, 0, 90, 15, BLACK)
 
 
-def start_animation(james, screen, all_sprites_list, clock, bgimg):
+def start_animation(james, screen, all_sprites_list, clock, bgimg, level):
+    r = 70
     while james.rect.x <= animation_end_point[0]:
         screen.blit(bgimg, (0, 0))
         james.update_animation()
+        text = "LEVEL {}".format(level)
+        print_text(screen, text, WIN_WIDTH / 2 - len(text), WIN_HEIGHT / 2, r, BLACK)
         all_sprites_list.draw(screen)
         clock.tick(20)
         pygame.display.flip()
+        r -= 1
 
 
 def show_intro(screen):
@@ -97,7 +101,7 @@ def show_intro(screen):
 
 
 def add_trees(total_level_width, total_level_height, obstacle_loc, obstacles):
-    for i in range(20):  # maps the trees
+    for i in range(20):  # maps the trees 70
         row = random.randint(30, total_level_width - 30)
         col = random.randint(animation_end_point[0], total_level_height - 120)
         location = [row, col]
@@ -117,16 +121,17 @@ def add_agents(total_level_width, obstacle_loc, obstacles):
             agent = Classes.Agent(location[0], location[1])
             obstacles.add(agent)
 
-def add_coins(total_level_width, total_level_height,obstacle_loc, obstacles):
+
+def add_coins(total_level_width, total_level_height, obstacle_loc, obstacles):
     for i in range(10):  # maps the coins
         row = random.randint(50, total_level_width - 50)
         col = random.randint(animation_end_point[0], total_level_height - 300)
-        
+
         for j in range(4):
-            col+=80
+            col += 80
             location = [row, col]
-            #print "i*20:", location
-            if not (location in obstacle_loc): # makes sure two coins are not in the same location
+            # print "i*20:", location
+            if not (location in obstacle_loc):  # makes sure two coins are not in the same location
                 #print location
                 obstacle_loc.append(location)
                 coin = Classes.Coin(location[0], location[1])
@@ -134,46 +139,41 @@ def add_coins(total_level_width, total_level_height,obstacle_loc, obstacles):
 
 
 def score_sheet(screen, name, player):
-
-    write_file = open("high_score.txt","a")
+    write_file = open("high_score.txt", "a")
     write_file.write("{},".format(name))
     write_file.write("{}\n".format(player.mission))
     write_file.close()
-    
+
     read_file = open("high_score.txt", "r")
     d = {}
     for line in read_file:
         x = line.split(",")
         a = x[0]
         b = int(x[1])
-        #c = len(b)-1
+        # c = len(b)-1
         #b = b[0:c]
         d[a] = b
     read_file.close()
-    sortedKey = reversed(sorted(d.items(), key = lambda t:t[1]))
+    sortedKey = reversed(sorted(d.items(), key=lambda t: t[1]))
     count = 0
     text_x = 250
     print "--------HIGH SCORE---------"
-    
-    for i in sortedKey:  
-        line = i[0]+'\t'+str(i[1])
+
+    for i in sortedKey:
+        line = i[0] + '\t' + str(i[1])
         print line
-        n = 0 
+        n = 0
         t_width = 10
         for z in range(2):
             print_text(screen, str(i[n]), t_width, text_x, 25, BLACK)
-            t_width +=70
-            n+=1
-        count+=1
+            t_width += 70
+            n += 1
+        count += 1
         if count >= 5:
             break
-        
-        text_x+=20
-        #pygame.display.flip()
 
-    
-        
-
+        text_x += 20
+        # pygame.display.flip()
 
     """
     text_x = 30
@@ -199,7 +199,6 @@ def end():
     sys.exit()
 
 
-
 def main():
     # Initialize variables and window
     pygame.init()
@@ -209,6 +208,7 @@ def main():
     heli = pygame.image.load("images/heli.png")
     total_level_width = bgimg.get_width()
     total_level_height = bgimg.get_height()
+    level = 1
 
     info_object = pygame.display.Info()
     WIN_HEIGHT = info_object.current_h / 2 if (info_object.current_h / 2) < total_level_height else total_level_height
@@ -219,81 +219,107 @@ def main():
     screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT), FLAGS, DEPTH)
     pygame.display.set_caption("007 JAMES BOND")
     clock = pygame.time.Clock()
-    flag_agents = 0
-    obstacle_loc = []
 
     name = show_intro(screen)
-    # Initialize objects
-    james = Classes.JamesBond(total_level_width, total_level_height, name)
-    james.rect.x, james.rect.y = animation_start_point
 
-    all_sprites_list = pygame.sprite.Group()
-    obstacles = pygame.sprite.Group()
+    while True:
+        # Initialize objects
+        james = Classes.JamesBond(total_level_width, total_level_height, name)
+        james.rect.x, james.rect.y = animation_start_point
 
-    all_sprites_list.add(james)
-    down = left = right = False
+        all_sprites_list = pygame.sprite.Group()
+        obstacles = pygame.sprite.Group()
+        flag_agents = 0
+        obstacle_loc = []
 
-    camera = Classes.Camera(complex_camera, total_level_width, total_level_height)
+        all_sprites_list.add(james)
+        down = left = right = False
 
-    bg = Classes.Background(0, 0, bgimg)
+        camera = Classes.Camera(complex_camera, total_level_width, total_level_height)
 
-    pygame.mouse.set_visible(0)
+        bg = Classes.Background(0, 0, bgimg)
 
-    add_trees(total_level_width, total_level_height, obstacle_loc, obstacles)
-    add_coins(total_level_width, total_level_height, obstacle_loc, obstacles)
+        pygame.mouse.set_visible(0)
 
-    start_animation(james, screen, all_sprites_list, clock, bgimg)
-    screen.blit(bgimg, (0, 0))
-    james.dress_to_ski()
-    all_sprites_list.draw(screen)
-    pygame.display.flip()
+        add_trees(total_level_width, total_level_height, obstacle_loc, obstacles)
+        add_coins(total_level_width, total_level_height, obstacle_loc, obstacles)
 
-    while not james.dead:
-        clock.tick(60)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                end()
+        start_animation(james, screen, all_sprites_list, clock, bgimg, level)
+        screen.blit(bgimg, (0, 0))
+        james.dress_to_ski()
+        all_sprites_list.draw(screen)
+        pygame.display.flip()
 
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    left = True
-                elif event.key == pygame.K_RIGHT:
-                    right = True
-                elif event.key == pygame.K_DOWN:
-                    down = True
+        while not james.dead:
+            clock.tick(60)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    end()
 
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    left = False
-                elif event.key == pygame.K_RIGHT:
-                    right = False
-                elif event.key == pygame.K_DOWN:
-                    down = False
-        if james.rel_rect.y > animation_start_point[1] + 300 and flag_agents == 0:
-            add_agents(total_level_width, obstacle_loc, obstacles)
-            flag_agents = 1
-        screen.blit(bgimg, (camera.apply(bg)))
-        camera.update(james)
-        james.update(down, left, right, camera, obstacles)
-        show_points(screen, james)
-        screen.blit(james.image, (camera.apply(james)))
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
+                        left = True
+                    elif event.key == pygame.K_RIGHT:
+                        right = True
+                    elif event.key == pygame.K_DOWN:
+                        down = True
 
-        #while succcess:
-        if james.rel_rect.y > int(total_level_height*3.95/4): 
-            theme1.fadeout(4000)
-            heli_sound.play()
-            heli_x,heli_y = WIN_WIDTH-WIN_WIDTH,WIN_HEIGHT-200
-            #for i in range(100):
-            screen.blit(heli,(heli_x,heli_y))
-            #    heli_x+=10
-            #time.sleep(2)
-            
-            pygame.display.flip()
+                elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LEFT:
+                        left = False
+                    elif event.key == pygame.K_RIGHT:
+                        right = False
+                    elif event.key == pygame.K_DOWN:
+                        down = False
+            if james.rel_rect.y > animation_start_point[1] + 300 and flag_agents == 0:
+                add_agents(total_level_width, obstacle_loc, obstacles)
+                flag_agents = 1
+            screen.blit(bgimg, (camera.apply(bg)))
+            camera.update(james)
+            james.update(down, left, right, camera, obstacles, level)
+            show_points(screen, james)
+            screen.blit(james.image, (camera.apply(james)))
+
+            if james.rel_rect.y > int(total_level_height * 3.95 / 4):
+                break
+
+            for obstacle in obstacles:
+                if isinstance(obstacle, Classes.Agent):
+                    obstacle.track_player(james, level)
+
+                if isinstance(obstacle, Classes.Coin):
+                    obstacle.update_animation()
+
+                screen.blit(obstacle.img, (camera.apply(obstacle)))
             pygame.display.update()
-            screen.blit(escape,(0,0))
-            pygame.mouse.set_visible(1)
-            pygame.time.delay(500)  
-            
+
+        if james.dead:
+            # ends game in a terrible way...
+            screen.blit(end_screen, (0, 0))
+            score_sheet(screen, name, james)
+            pygame.time.delay(1000)
+            pygame.display.update()
+            pygame.time.delay(4000)
+            score_sheet(screen, name, james)
+            pygame.display.update()
+            end()
+
+        theme1.fadeout(4000)
+        heli_sound.play()
+        heli_x, heli_y = WIN_WIDTH - WIN_WIDTH, WIN_HEIGHT - 200
+        #for i in range(100):
+        screen.blit(heli, (heli_x, heli_y))
+        #    heli_x+=10
+        #time.sleep(2)
+
+        pygame.display.flip()
+        pygame.display.update()
+        screen.blit(escape, (0, 0))
+        pygame.mouse.set_visible(1)
+        pygame.time.delay(500)
+
+        show_last_screen = True
+        while show_last_screen:
             pygame.display.update()
             #pygame.time.delay(2000)
             score_sheet(screen, name, james)
@@ -301,43 +327,14 @@ def main():
             #continue
             #james.won = True
             #pygame.time.delay(5000)
-            '''
-            if event.type==pygame.MOUSEBUTTONDOWN:
-                james.mission = 0
-                james.lives = 3
-                james.power = 100
-                james.rel_rect.y = 50
-                #main()
-            if event.type==QUIT:
-                end()
-            '''
-            
-            break
-        
-        for obstacle in obstacles:
-            if isinstance(obstacle, Classes.Agent):
-                obstacle.track_player(james)
-                
-            if isinstance(obstacle,Classes.Coin):
-                obstacle.update_animation()
-                
-            screen.blit(obstacle.img, (camera.apply(obstacle)))
-        pygame.display.update()
 
-        
-                
-    if james.dead:
-    #ends game in a terrible way...
-        screen.blit(end_screen, (0, 0))
-        score_sheet(screen, name, james)
-        pygame.time.delay(1000)
-        pygame.display.update()
-        pygame.time.delay(4000)
-        score_sheet(screen, name, james)
-        pygame.display.update()
-        end()
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    level += 1
+                    show_last_screen = False
+                if event.type == QUIT:
+                    end()
 
 
 if __name__ == '__main__':
-    
     main()
