@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="Fix with the points, now you preserve your points, lives and power through the levels">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/JAMES BOND/bond.wav" afterPath="$PROJECT_DIR$/JAMES BOND/sounds/bond.wav" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/JAMES BOND/main_theme.wav" afterPath="$PROJECT_DIR$/JAMES BOND/sounds/main_theme.wav" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/JAMES BOND/sc_bond.wav" afterPath="$PROJECT_DIR$/JAMES BOND/sounds/sc_bond.wav" />
+    <list default="true" id="0fb0809b-c867-4228-b694-72ec4ff17362" name="Default" comment="Find the problem with the sound">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JAMES BOND/Constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/images/dead.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/dead.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/images/esc.png" afterPath="$PROJECT_DIR$/JAMES BOND/images/esc.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/Classes.py" afterPath="$PROJECT_DIR$/JAMES BOND/Classes.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/high_score.txt" afterPath="$PROJECT_DIR$/JAMES BOND/high_score.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JAMES BOND/james bond.py" afterPath="$PROJECT_DIR$/JAMES BOND/james bond.py" />
@@ -34,8 +34,20 @@
       <file leaf-file-name="james bond.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JAMES BOND/james bond.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="6300">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3870" max-vertical-offset="4752">
+              <caret line="229" column="40" selection-start-line="229" selection-start-column="40" selection-end-line="229" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JAMES BOND/Constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.97927463" vertical-offset="216" max-vertical-offset="1692">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -43,12 +55,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Classes.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Classes.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JAMES BOND/Classes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21460506" vertical-offset="324" max-vertical-offset="3384">
-              <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1744" max-vertical-offset="4068">
+              <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,8 +97,9 @@
         <option value="$PROJECT_DIR$/BOND v4.2/Classes.py" />
         <option value="$PROJECT_DIR$/BOND v4.2/james bond.py" />
         <option value="$PROJECT_DIR$/Bond Game Project/README.txt" />
-        <option value="$PROJECT_DIR$/JAMES BOND/james bond.py" />
+        <option value="$PROJECT_DIR$/JAMES BOND/Constants.py" />
         <option value="$PROJECT_DIR$/JAMES BOND/Classes.py" />
+        <option value="$PROJECT_DIR$/JAMES BOND/james bond.py" />
       </list>
     </option>
   </component>
@@ -120,6 +135,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -166,31 +182,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sounds" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="e-qip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="e-qip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JAMES BOND" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,28 +521,32 @@
       <created>1416937155592</created>
       <updated>1416937155592</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Find the problem with the sound">
+      <created>1416938539869</created>
+      <updated>1416938539869</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-23" width="1370" height="795" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32855093" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32234958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19479553" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44555873" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3208633" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19107807" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5568345" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28510028" sideWeight="0.50037175" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44412607" sideWeight="0.49962825" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4057554" sideWeight="0.49962825" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32428572" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -596,7 +597,8 @@
     <MESSAGE value="Clock tick in 60" />
     <MESSAGE value="Game starts in level 1 and continues increasing until James dead" />
     <MESSAGE value="Fix with the points, now you preserve your points, lives and power through the levels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix with the points, now you preserve your points, lives and power through the levels" />
+    <MESSAGE value="Find the problem with the sound" />
+    <option name="LAST_COMMIT_MESSAGE" value="Find the problem with the sound" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -607,25 +609,10 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="60" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/examples/Nebula Wars/data/living/ship.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/Nebula Wars/data/powerups/shield.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/Nebula Wars/data/powerups/hp.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/Nebula Wars/data/rocks/earth.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -809,11 +796,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAMES BOND/images/bond skiing.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JAMES BOND/images/coin1.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -839,17 +821,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JAMES BOND/images/GameOver.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JAMES BOND/images/heli.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JAMES BOND/images/jamesr1.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -874,21 +846,60 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JAMES BOND/images/GameOver.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAMES BOND/images/dead.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/-1247972723/sys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.657682" vertical-offset="8035" max-vertical-offset="8406">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAMES BOND/images/jamesr1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAMES BOND/images/bond skiing.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JAMES BOND/james bond.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="6300">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3870" max-vertical-offset="4752">
+          <caret line="229" column="40" selection-start-line="229" selection-start-column="40" selection-end-line="229" selection-end-column="40" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JAMES BOND/Classes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21460506" vertical-offset="324" max-vertical-offset="3384">
-          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1744" max-vertical-offset="4068">
+          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JAMES BOND/Constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.97927463" vertical-offset="216" max-vertical-offset="1692">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
