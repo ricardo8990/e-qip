@@ -167,11 +167,14 @@ class Agent(Obstacle):
         super(Agent, self).__init__(x, y, game_agents_location_image)
 
     def track_player(self, player, level):
-        dx, dy = self.rel_rect.x - player.rel_rect.x, self.rel_rect.y - player.rel_rect.y
-        self.dist = cmath.sqrt(dx * dx + dy * dy)
-        dx, dy = float(dx / self.dist.real), float(dy / self.dist.real)
-        self.rel_rect.x -= dx * 3
-        self.rel_rect.y -= dy * 4 * level
+        try:
+            dx, dy = self.rel_rect.x - player.rel_rect.x, self.rel_rect.y - player.rel_rect.y
+            self.dist = cmath.sqrt(dx * dx + dy * dy)
+            dx, dy = float(dx / self.dist.real), float(dy / self.dist.real)
+            self.rel_rect.x -= dx * 3
+            self.rel_rect.y -= dy * 4 * level
+        except:
+            pass
 
     @classmethod
     def add(cls, total_level_width, *args):

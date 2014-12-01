@@ -79,10 +79,12 @@ def show_intro(screen):
 
 
 def score_sheet(screen, name, player):
+    #writes the name and score in the text file
     write_file = open(game_default_score_sheet_file, "a")
     write_file.write("{},{}\n".format(name, player.mission))
     write_file.close()
 
+    #reads the line and puts in dictionary
     read_file = open(game_default_score_sheet_file, "r")
     d = {}
     for line in read_file:
@@ -91,23 +93,27 @@ def score_sheet(screen, name, player):
         b = int(x[1])
         d[a] = b
     read_file.close()
+
+    #sort the score in dictionary
     sorted_key = reversed(sorted(d.items(), key=lambda t: t[1]))
     count = 0
     text_y = game_default_score_text_y
 
     for i in sorted_key:
-        t_width = 10
+        t_width = 40
         for z in range(2):
+            #prints the score onto the screen 
             print_text(screen, str(i[z]), t_width, text_y, game_default_score_text_size,
                        pygame.color.THECOLORS["black"])
-            t_width += 70
+            t_width += 120
         count += 1
         if count >= 5:
             break
         text_y += 20
 
 
-def end():
+
+def end():   # func to exit the game
     pygame.quit()
     sys.exit()
 
@@ -214,11 +220,15 @@ def main():
             if james.rel_rect.y > int(total_level_height * game_default_end_game_portion):
                 break
 
+        #when james is dead shows final screen with Score list
         if james.dead:
+            shot_sound.play()
             screen.blit(end_screen, (0, 0))
             score_sheet(screen, name, james)
             pygame.display.update()
         else:
+            #when james escapes, flight appears end screen is shown
+            heli_sound.play()
             screen.blit(heli, (0, WIN_HEIGHT - 200))
             pygame.display.flip()
             pygame.time.delay(500)
@@ -229,7 +239,9 @@ def main():
 
         show_last_screen = True
         main_theme.fadeout(1000)
+        
         while show_last_screen:
+            #if Enter key is pressed JamesBond is called again to restart the game
             for evt in pygame.event.get():
                 if evt.type == KEYDOWN and evt.key == K_RETURN:
                     if james.dead:

@@ -42,6 +42,7 @@ bond_voice = pygame.mixer.Sound("sounds/sc_bond.wav")
 coin_sound = pygame.mixer.Sound("sounds/coin.aiff")
 tree_sound = pygame.mixer.Sound("sounds/tree.wav")
 agent_sound = pygame.mixer.Sound("sounds/agent.wav")
+shot_sound = pygame.mixer.Sound("sounds/shot.wav")
 
 #Configuration for intro
 intro_text_x = 30
