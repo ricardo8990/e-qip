@@ -25,9 +25,9 @@ def print_text(screen, text, x, y, size, colour):
 
 
 def show_points(screen, player):
-    first_line_text = "Power: %d" % player.power
-    second_line_text = "Lives: %d" % player.lives
-    third_line_text = "Mission: %d" % player.mission
+    first_line_text = game_default_points_text1.format(player.power)
+    second_line_text = game_default_points_text2.format(player.lives)
+    third_line_text = game_default_points_text3.format(player.mission)
     print_text(screen, first_line_text, 0, 70, 15, pygame.color.THECOLORS["black"])
     print_text(screen, second_line_text, 0, 80, 15, pygame.color.THECOLORS["black"])
     print_text(screen, third_line_text, 0, 90, 15, pygame.color.THECOLORS["black"])
@@ -38,6 +38,8 @@ def start_animation(james, screen, all_sprites_list, clock, bgimg, level):
     while james.rect.x <= animation_end_point[0]:
         screen.blit(bgimg, (0, 0))
         james.update_animation()
+        for c in [s for s in all_sprites_list.spritedict if isinstance(s, Classes.Coin)]:
+            c.update_animation()
         text = animation_text.format(level)
         all_sprites_list.draw(screen)
         print_text(screen, text, HALF_WIDTH - len(text), HALF_HEIGHT, r, pygame.color.THECOLORS["black"])
@@ -126,7 +128,7 @@ def main():
     HALF_WIDTH = int(WIN_WIDTH / 2)
     HALF_HEIGHT = int(WIN_HEIGHT / 2)
     screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT), FLAGS, DEPTH)
-    pygame.display.set_caption("007 JAMES BOND")
+    pygame.display.set_caption(WINDOW_TITLE)
     clock = pygame.time.Clock()
 
     # Show the intro
@@ -137,7 +139,6 @@ def main():
     while True:
         # Initialize objects, variables and sprites
         all_sprites_list = pygame.sprite.Group()
-        #obstacles = pygame.sprite.Group()
         all_sprites_list.add(james)
         flag_agents = True
         obstacle_loc = []
@@ -221,6 +222,7 @@ def main():
             screen.blit(heli, (0, WIN_HEIGHT - 200))
             pygame.display.flip()
             pygame.time.delay(500)
+            screen.fill(pygame.color.THECOLORS["white"])
             screen.blit(escape, (0, 0))
             score_sheet(screen, name, james)
             pygame.display.update()

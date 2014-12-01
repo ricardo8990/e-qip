@@ -149,7 +149,6 @@ class Obstacle(pygame.sprite.Sprite):
                     obstacle_loc.append(location)
                     obj = cls(location[0], location[1])
                     all_sprites_list.add(obj)
-                    all_sprites_list.add(obj)
 
 
 class Tree(Obstacle):

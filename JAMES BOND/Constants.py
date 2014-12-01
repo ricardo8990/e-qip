@@ -10,6 +10,7 @@ DEPTH = 32
 FLAGS = 0
 WINDOW_HEIGHT_PERCENTAGE = 0.75
 WINDOW_WIDTH_PERCENTAGE = 0.5
+WINDOW_TITLE = "007 JAMES BOND"
 
 #Images
 end_screen = pygame.image.load('images/dead.png')
@@ -87,3 +88,6 @@ game_default_end_game_portion = 3.95 / 4
 game_default_score_sheet_file = "high_score.txt"
 game_default_score_text_y = 250
 game_default_score_text_size = 25
+game_default_points_text1 = "Power: {}"
+game_default_points_text2 = "Lives: {}"
+game_default_points_text3 = "Mission: {}"
