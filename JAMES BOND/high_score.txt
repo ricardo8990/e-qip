@@ -12054,3 +12054,10 @@ Rich,165
 Rich,245
 Rich,290
 Rich,300
+Rish,155
+Rish,210
+Rish,230
+Rish,190
+Rish,275
+Rish,365
+Rish,365
