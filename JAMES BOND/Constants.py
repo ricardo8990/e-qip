@@ -13,7 +13,7 @@ WINDOW_WIDTH_PERCENTAGE = 0.5
 
 #Images
 end_screen = pygame.image.load('images/dead.png')
-bgimg = pygame.image.load('images/bg.png')
+bgimg = pygame.image.load('images/bg2.png')
 heli = pygame.image.load("images/heli.png")
 title_screen = pygame.image.load('images/scr3.jpg')
 escape = pygame.image.load('images/esc.png')

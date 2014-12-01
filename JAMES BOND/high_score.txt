@@ -12005,3 +12005,13 @@ Ricardo,160
 Ricardo,175
 Ricardo,185
 Ricardo,205
+deniz,120
+deniz,210
+deniz,250
+deniz,155
+deniz,135
+deniz,165
+deniz,220
+deniz,135
+deniz,130
+deniz,140

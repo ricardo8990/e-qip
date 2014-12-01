@@ -3,7 +3,7 @@ import sys
 from Constants import *
 
 
-def complex_camera(camera, target_rect):
+def game_camera(camera, target_rect):
     l, t, _, _ = target_rect
     _, _, w, h = camera
     l, t, _, _ = -l + HALF_WIDTH, -t + HALF_HEIGHT, w, h
@@ -73,19 +73,7 @@ def show_intro(screen):
         pygame.display.flip()
 
     pygame.mixer.pause()
-    return name
-
-
-def add_trees(total_level_width, total_level_height, obstacle_loc, obstacles, all_sprites_list):
-    Classes.Tree.add(total_level_width, total_level_height, obstacle_loc, obstacles, all_sprites_list)
-
-
-def add_agents(total_level_width, obstacle_loc, obstacles, all_sprites_list):
-    Classes.Agent.add(total_level_width, obstacle_loc, obstacles, all_sprites_list)
-
-
-def add_coins(total_level_width, total_level_height, obstacle_loc, obstacles, all_sprites_list):
-    Classes.Coin.add(total_level_width, total_level_height, obstacle_loc, obstacles, all_sprites_list)
+    return name  
 
 
 def score_sheet(screen, name, player):
@@ -149,16 +137,16 @@ def main():
     while True:
         # Initialize objects, variables and sprites
         all_sprites_list = pygame.sprite.Group()
-        obstacles = pygame.sprite.Group()
+        #obstacles = pygame.sprite.Group()
         all_sprites_list.add(james)
         flag_agents = True
         obstacle_loc = []
         down = left = right = False
-        camera = Classes.Camera(complex_camera, total_level_width, total_level_height)
+        camera = Classes.Camera(game_camera, total_level_width, total_level_height)
         bg = Classes.Background(0, 0, bgimg)
 
-        add_trees(total_level_width, total_level_height, obstacle_loc, obstacles, all_sprites_list)
-        add_coins(total_level_width, total_level_height, obstacle_loc, obstacles, all_sprites_list)
+        Classes.Tree.add(total_level_width, total_level_height, obstacle_loc, all_sprites_list)
+        Classes.Coin.add(total_level_width, total_level_height, obstacle_loc, all_sprites_list)
 
         #Reproduce the sounds
         bond_voice.play()
@@ -196,7 +184,7 @@ def main():
 
             #If james has advanced more than game_agents_start_y we create the agents
             if james.get_position_relative()[1] > animation_start_point[1] + game_agents_start_y and flag_agents:
-                add_agents(total_level_width, obstacle_loc, obstacles, all_sprites_list)
+                Classes.Agent.add(total_level_width, obstacle_loc, all_sprites_list)
                 flag_agents = False
 
             #Update the background, the camera and James
@@ -204,17 +192,17 @@ def main():
             camera.update(james)
             james.update(down, left, right, camera, level)
             #Detect if James has collided with something
-            james.collide(obstacles, all_sprites_list)
+            james.collide(all_sprites_list)
 
             #Update the obstacles according to their types, agents have to track James and coins update the animation
-            for obstacle in obstacles:
+            for obstacle in all_sprites_list:
                 if isinstance(obstacle, Classes.Agent):
                     obstacle.track_player(james, level)
 
                 if isinstance(obstacle, Classes.Coin):
                     obstacle.update_animation()
-
-                obstacle.update(camera)
+                if not isinstance(obstacle,Classes.JamesBond):
+                    obstacle.update(camera)
 
             #Draw all the elements in the screen
             show_points(screen, james)

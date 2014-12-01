@@ -86,8 +86,8 @@ class JamesBond(pygame.sprite.Sprite):
 
         self.rect = camera.apply(self)
 
-    def collide(self, obstacles, all_sprites_list):
-        all_obstacles_collided = pygame.sprite.spritecollide(self, obstacles, False)
+    def collide(self, all_sprites_list):
+        all_obstacles_collided = pygame.sprite.spritecollide(self, all_sprites_list, False)
         for obstacle in all_obstacles_collided:
             if isinstance(obstacle, Agent):
                 agent_sound.play()
@@ -114,7 +114,6 @@ class JamesBond(pygame.sprite.Sprite):
             if isinstance(obstacle, Coin):
                 self.mission += game_coins_mission_power
                 coin_sound.play()
-                obstacles.remove(obstacle)
                 all_sprites_list.remove(obstacle)
 
 
@@ -139,7 +138,7 @@ class Obstacle(pygame.sprite.Sprite):
         self.rect = camera.apply(self)
 
     @staticmethod
-    def add(cls, number, min_row, max_row, min_col, max_col, obstacle_loc, obstacles, all_sprites_list, number_row=1, step=0):
+    def add(cls, number, min_row, max_row, min_col, max_col, obstacle_loc, all_sprites_list, number_row=1, step=0):
         for i in range(number):  # maps the obstacles
             row = random.randint(min_row, max_row)
             col = random.randint(min_col, max_col)
@@ -149,7 +148,7 @@ class Obstacle(pygame.sprite.Sprite):
                 if not (location in obstacle_loc):  # makes sure two obstacles are not in the same location
                     obstacle_loc.append(location)
                     obj = cls(location[0], location[1])
-                    obstacles.add(obj)
+                    all_sprites_list.add(obj)
                     all_sprites_list.add(obj)
 
 
