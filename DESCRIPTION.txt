@@ -1,0 +1,15 @@
+James Bond Skiing Game:
+
+James Bond is running away from enemy state's agent.
+He needs to get down a mountain slope, before the enemy catches up with him.  
+On his way down he must collect as many coins/intelligence as he can so as not to fail M.
+If he can make it to the end of the slope safely, an MI6 helicopter is waiting to pick him up.
+
+In order to win:
+Collect as many coins as you can to increase mission points.
+Any contact with the enemy agent is fatal.  He is trained to kill.
+You can track Bond's health by the lives points.
+Any contact with trees will damage Bond's health.
+You can track Bond's health by the health points.  Every time it drops to 0, his lives will decrease by 1.
+Bond has the ability to resurrect himself three times, thanks to Q.
+

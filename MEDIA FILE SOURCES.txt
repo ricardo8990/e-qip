@@ -1,0 +1,10 @@
+Source for coins:
+http://www.williammalone.com/articles/create-html5-canvas-javascript-sprite-animation/images/coin-sprite-animation-sprite-sheet.png
+
+Sources used for the background image:
+http://s1157.photobucket.com/user/Pukahuna/media/Montanhas11_zpsa1fdec7f.png.html
+http://fc06.deviantart.net/fs71/f/2014/027/2/0/mountain_background_by_pukahuna-d73zlo5.png
+http://www.spriters-resource.com/genesis_32x_scd/winterolympics/sheet/27377/
+
+Source for James Bond, Agents:
+http://www.spriters-resource.com/genesis_32x_scd/winterolympics/sheet/27377/
