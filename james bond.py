@@ -16,7 +16,7 @@ def game_camera(camera, target_rect):  #center james bond in the middle, camera 
     return Rect(l, t, w, h)  #return the new rectangle
 
 
-def print_text(screen, text, x, y, size, colour):
+def print_text(screen, text, x, y, size, colour): #displays text onto the screen 
     game_font = pygame.font.Font(None, size)
     text_render = game_font.render(text, 1, colour)
     text_rect = text_render.get_rect()
@@ -25,7 +25,7 @@ def print_text(screen, text, x, y, size, colour):
     screen.blit(text_render, text_rect)
 
 
-def show_points(screen, player):
+def show_points(screen, player): # prints the player name,points,power on the screen 
     first_line_text = game_default_points_text1.format(player.power)
     second_line_text = game_default_points_text2.format(player.lives)
     third_line_text = game_default_points_text3.format(player.mission)
@@ -34,12 +34,12 @@ def show_points(screen, player):
     print_text(screen, third_line_text, 0, 90, 15, pygame.color.THECOLORS["black"])
 
 
-def start_animation(james, screen, all_sprites_list, clock, bgimg, level):
+def start_animation(james, screen, all_sprites_list, clock, bgimg, level):  
     r = animation_letter_size
-    while james.rect.x <= animation_end_point[0]:
+    while james.rect.x <= animation_end_point[0]: 
         screen.blit(bgimg, (0, 0))
         james.update_animation()
-        for c in [s for s in all_sprites_list.spritedict if isinstance(s, Classes.Coin)]:
+        for c in [s for s in all_sprites_list.spritedict if isinstance(s, Classes.Coin)]: 
             c.update_animation()
         text = animation_text.format(level)
         all_sprites_list.draw(screen)
@@ -49,8 +49,8 @@ def start_animation(james, screen, all_sprites_list, clock, bgimg, level):
         r -= 1
 
 
-def show_intro(screen):
-    theme1.play(-1)
+def show_intro(screen): #displays the Home screen
+    theme1.play(-1) 
     first_screen = title_screen
     text_y = int(9 * WIN_HEIGHT / 10)
     name = ""
@@ -58,11 +58,11 @@ def show_intro(screen):
 
     while not completed:
         screen.fill(pygame.color.THECOLORS["white"])
-        screen.blit(first_screen, (0, 0))
+        screen.blit(first_screen, (0, 0))    
         print_text(screen, intro_text1, intro_text_x, text_y, 30, pygame.color.THECOLORS["black"])
         if name != "":
             print_text(screen, intro_text2, intro_text_x, WIN_HEIGHT - 20, 20, pygame.color.THECOLORS["black"])
-        for evt in pygame.event.get():
+        for evt in pygame.event.get():  # get user input for name and Enter
             if evt.type == KEYDOWN:
                 if evt.unicode.isalpha():
                     name += evt.unicode
@@ -85,28 +85,28 @@ def score_sheet(screen, name, player):
     write_file.write("{},{}\n".format(name, player.mission))
     write_file.close()
 
-    #reads the line and puts in dictionary
+    #reads the line and puts in a list
     read_file = open(game_default_score_sheet_file, "r")
-    d = {}
+    scores=[]
     for line in read_file:
         x = line.split(",")
         a = x[0]
         b = int(x[1])
-        d[a] = b
+        scores.append((b,a))
     read_file.close()
-
-    #sort the score in dictionary
-    sorted_key = reversed(sorted(d.items(), key=lambda t: t[1]))
+    scores.sort()
+    scores.reverse()   # sorted scores available in list  
+    
     count = 0
     text_y = game_default_score_text_y
 
-    for i in sorted_key:
+    for i in scores:     # prints the top 5 scores onto the screen using print_text func
         t_width = 40
         for z in range(2):
             #prints the score onto the screen 
             print_text(screen, str(i[z]), t_width, text_y, game_default_score_text_size,
                        pygame.color.THECOLORS["black"])
-            t_width += 120
+            t_width += 80
         count += 1
         if count >= 5:
             break
@@ -238,14 +238,15 @@ def main():
             pygame.time.delay(500)
             screen.fill(pygame.color.THECOLORS["white"])
             screen.blit(escape, (0, 0))
-            score_sheet(screen, name, james)
+            
+            
             pygame.display.update()
 
         show_last_screen = True
         main_theme.fadeout(1000)
         
         while show_last_screen:
-            #if Enter key is pressed JamesBond is called again to restart the game
+            #detects keyboard input, JamesBond is called again to restart the game
             for evt in pygame.event.get():
                 if evt.type == KEYDOWN and evt.key == K_RETURN:
                     if james.dead:
