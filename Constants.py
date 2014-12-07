@@ -92,3 +92,4 @@ game_default_score_text_size = 25
 game_default_points_text1 = "Health: {}"
 game_default_points_text2 = "Lives: {}"
 game_default_points_text3 = "Mission: {}"
+game_default_text_size = 15

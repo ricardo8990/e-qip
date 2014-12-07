@@ -5,3 +5,7 @@ Deniz,200
 Deniz,300
 Deniz,50
 zined,170
+Ricardo,295
+Ricardo,210
+Ricardo,330
+Chiva,230
