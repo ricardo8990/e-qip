@@ -18,25 +18,13 @@ class JamesBond(pygame.sprite.Sprite):
         self.level_width = width
         self.level_height = height
 
-    def set_position_screen(self, x=None, y=None):
+    def set_position_screen(self, x=None, y=None):  # sets james bond's position attributes
         if x is not None:
             self.rect.x = x
         if y is not None:
             self.rect.y = y
 
-    def increase_position_screen(self, x=None, y=None):
-        if x is not None:
-            self.rect.x += x
-        if y is not None:
-            self.rect.y += y
-
-    def set_position_relative(self, x=None, y=None):  # sets james bond's position attributes
-        if x is not None:
-            self.rect.x = x
-        if y is not None:
-            self.rect.y = y
-
-    def increase_position_relative(self, x=None, y=None):  # increases james bond's position attributes
+    def increase_position_screen(self, x=None, y=None):  # increases james bond's position attributes
         if x is not None:
             self.rect.x += x
         if y is not None:
@@ -74,18 +62,18 @@ class JamesBond(pygame.sprite.Sprite):
 
         # out of bounds control for min x position
         if self.get_position_relative()[0] + self.x < 0:
-            self.set_position_relative(0)
+            self.set_position_screen(0)
         # out of bounds control for max x position
         elif self.get_position_relative()[0] + self.x > self.level_width - self.image.get_width():
-            self.set_position_relative(self.level_width - self.image.get_width())
+            self.set_position_screen(self.level_width - self.image.get_width())
         else:
-            self.increase_position_relative(self.x)  # change position according to key press
+            self.increase_position_screen(self.x)  # change position according to key press
 
         # out of bounds control for y position
         if self.get_position_relative()[1] + self.y > self.level_height - self.image.get_height():
-            self.set_position_relative(y=self.level_height - self.image.get_height())
+            self.set_position_screen(y=self.level_height - self.image.get_height())
         else:
-            self.increase_position_relative(y=self.y)  # change position according to key press
+            self.increase_position_screen(y=self.y)  # change position according to key press
 
     def collide(self, all_sprites_list):  # collision detection for james bond
         all_obstacles_collided = pygame.sprite.spritecollide(self, all_sprites_list, False)  # get a list of collisions
